@@ -31,12 +31,15 @@ https://www.tooplate.com/view/2128-tween-agency
   --h6-font-size:                 22px;
   --p-font-size:                  18px;
   --menu-font-size:               18px;
-  --copyright-text-font-size:     16px;
+  --copyright-text-font-size:     16px;                                                                                           
   --custom-link-font-size:        14px;
 
   --font-weight-light:            300;
   --font-weight-normal:           400;
   --font-weight-bold:             600;
+
+  --white-filter:                 brightness(0) saturate(100%) invert(98%) sepia(2%) saturate(116%) hue-rotate(123deg) brightness(118%) contrast(100%);
+  --primary-filter:               brightness(0) saturate(100%) invert(56%) sepia(61%) saturate(413%) hue-rotate(106deg) brightness(92%) contrast(91%);
 }
 
 body {
@@ -140,9 +143,25 @@ strong {
 
 .backstretch { max-width: 99.99%; }
 
+/* FILTER */
+.white-filter{
+  filter: var(--white-filter);
+}
+.primary-filter{
+  filter: var(--primary-filter);
+}
+
 /*---------------------------------------
   CUSTOM ICON               
 -----------------------------------------*/
+.img-icon{
+  margin-top: -7px;
+}
+
+.menu-icon{
+  height: 30px;
+}
+
 .play-icon-wrap {
   background: var(--white-color);
   border-radius: .3rem;
@@ -329,6 +348,12 @@ button:focus:not(:focus-visible) {
 .navbar-brand {
   font-size: 40px;
   color: var(--white-color);
+}
+
+.navbar-brand:hover {
+  touch-action: manipulation;
+  transition: all 0.3s;
+  filter: var(--primary-filter);
 }
 
 .navbar-expand-lg .navbar-nav .nav-link {
