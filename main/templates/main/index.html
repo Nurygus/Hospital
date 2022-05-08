@@ -19,7 +19,7 @@
         
         <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
                 
-        <link href="{% static 'main/css/bootstrap.min.css' %}" rel="stylesheet">
+        <link href="{% static 'Hospital/css/bootstrap.min.css' %}" rel="stylesheet">
 
         <link href="{% static 'main/css/bootstrap-icons.css' %}" rel="stylesheet">
 
@@ -45,7 +45,7 @@
                     Hospital
                 </a>
 
-                <a href="#" class="custom-btn btn btn-lg d-lg-none ms-auto me-4">
+                <a href="{% url 'login:index' %}" class="custom-btn btn btn-lg d-lg-none ms-auto me-4">
                     Içeri gir
                     <i class="bi-arrow-right ms-2"></i>
                 </a>
@@ -78,7 +78,7 @@
                     </ul>
 
                     <div class="ms-auto d-none d-lg-block">
-                        <a href="#" class="custom-btn btn btn-lg">
+                        <a href="{% url 'login:index' %}" class="custom-btn btn btn-lg">
                             Içeri gir
                             <i class="bi-arrow-right ms-2"></i>
                         </a>
@@ -488,9 +488,9 @@
         </footer>
 
         <!-- JAVASCRIPT FILES -->
-        <script src="{% static 'main/js/jquery.min.js' %}"></script>
-        <script src="{% static 'main/js/popper.js' %}"></script>
-        <script src="{% static 'main/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'Hospital/js/jquery.min.js' %}"></script>
+        <script src="{% static 'Hospital/js/popper.js' %}"></script>
+        <script src="{% static 'Hospital/js/bootstrap.min.js' %}"></script>
         <script src="{% static 'main/js/jquery.backstretch.min.js' %}"></script>
         <script src="{% static 'main/js/jquery.magnific-popup.min.js' %}"></script>
         <script src="{% static 'main/js/magnific-popup-options.js' %}"></script>
