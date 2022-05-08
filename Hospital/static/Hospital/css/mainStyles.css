@@ -149,3 +149,11 @@
   .img-icon{
     margin-top: -7px;
   }
+
+  /* COLORS */
+  .white-color{
+    color: var(--white-color);
+    }
+  .primary-color{
+    color: var(--primary-color);
+  }
