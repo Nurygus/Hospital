@@ -40,6 +40,7 @@ https://www.tooplate.com/view/2128-tween-agency
 
   --white-filter:                 brightness(0) saturate(100%) invert(98%) sepia(2%) saturate(116%) hue-rotate(123deg) brightness(118%) contrast(100%);
   --primary-filter:               brightness(0) saturate(100%) invert(56%) sepia(61%) saturate(413%) hue-rotate(106deg) brightness(92%) contrast(91%);
+  --dark-filter:                  filter: brightness(0) saturate(100%);
 }
 
 body {
@@ -335,6 +336,10 @@ button:focus:not(:focus-visible) {
 .sticky-nav {
   background: var(--white-color);
   box-shadow: 0 1rem 3rem rgba(0,0,0,.175);
+}
+
+.sticky-nav img{
+  filter: var(--dark-filter);
 }
 
 .sticky-nav .navbar-brand {
@@ -638,7 +643,7 @@ button:focus:not(:focus-visible) {
 .site-footer {
   background: var(--footer-bg-color);
   padding-top: 100px;
-  padding-bottom: 100px;
+  padding-bottom: 90px;
 }
 
 .site-footer-bottom {
