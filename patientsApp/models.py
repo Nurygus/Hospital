@@ -2,8 +2,10 @@ from django.db import models
 
 # Create your models here.
 
-class Patients(models.Model):
+class Patient(models.Model):
     name = models.TextField()
+    login = models.TextField()
+    password = models.TextField()
     date_of_birth = models.DateField()
     country = models.TextField()
     city = models.TextField()
@@ -14,3 +16,7 @@ class Patients(models.Model):
     work = models.TextField()
     phone = models.TextField()
     email = models.TextField()
+
+    class Meta:
+        managed = False
+        db_table = 'patients'
