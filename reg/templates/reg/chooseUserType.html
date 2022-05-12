@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+
+    {% load static %}
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sabrsky Hospital ulgamyna giriň</title>
+
+    <link rel="stylesheet" href="{% static 'Hospital/css/bootstrap.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'Hospital/css/mainStyles.css' %}">
+
+    <link rel="stylesheet" href="{% static 'reg/css/chooseUserType.css' %}">
+</head>
+<body>
+    <section id="types-row" class="row justify-content-center">
+        <div class="type-card col-2 me-4">
+            <div class="type-img-container">
+                <img class="img-icon menu-icon primary-filter" src="{% static 'reg/imgs/doctor.png' %}" alt="" />
+            </div>
+            <div class="type-card-header primary-color">Lukman</div>
+            <div class="type-card-text">Hassahanalarda häzirki wagtda işleýän lukmanlar üçin</div>
+            <a class="type-card-button" href="{% url 'reg:doctor' %}">Registrasiýa</a>
+        </div>
+        <div class="type-card col-2">
+            <div class="type-img-container">
+                <img class="img-icon menu-icon primary-filter card-image" src="{% static 'reg/imgs/card.png' %}" alt="" />
+            </div>
+            <div class="type-card-header primary-color">Ulanyjy</div>
+            <div class="type-card-text">Özüne hassahana kartyny açmak üçin ulanyjylar üçin</div>
+            <a class="type-card-button" href="{% url 'reg:card' %}">Registrasiýa</a>
+        </div>
+    </section>
+    <script src="{% static 'Hospital/js/jquery.min.js' %}"></script>
+    <script src="{% static 'Hospital/js/popper.js' %}"></script>
+    <script src="{% static 'Hospital/js/bootstrap.min.js' %}"></script>
+</body>
+</html>

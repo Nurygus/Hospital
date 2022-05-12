@@ -4,6 +4,7 @@ from django.contrib.auth.views import LoginView
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from django.contrib.auth.models import User
+from django.contrib.auth.hashers import make_password
 
 # Create your views here.
 
@@ -25,7 +26,3 @@ def sign_in(request):
                 return HttpResponseRedirect(reverse("doctorsApp:index"))
     else:
         return HttpResponseRedirect(reverse("login:index"))
-
-class SignUpView(LoginView):
-    template_name = "login/signUp.html"
-
