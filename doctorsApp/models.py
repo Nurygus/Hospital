@@ -17,9 +17,6 @@ class Department(models.Model):
     hospital = models.ForeignKey(Hospital, on_delete=models.CASCADE)
 
 class Doctor(models.Model):
-    name = models.TextField()
-    login = models.TextField()
-    password = models.TextField()
     speciality = models.ForeignKey(Speciality, on_delete=models.CASCADE)
     hospital = models.ForeignKey(Hospital, on_delete=models.CASCADE)
     department = models.ForeignKey(Department, on_delete=models.CASCADE)

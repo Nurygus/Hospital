@@ -1,12 +1,11 @@
 from django.db import models
 from doctorsApp.models import Hospital, Doctor
+from django.conf import settings
+from django.contrib.auth.models import User
 
 # Create your models here.
 
 class Patient(models.Model):
-    name = models.TextField()
-    login = models.TextField()
-    password = models.TextField()
     date_of_birth = models.DateField()
     country = models.TextField()
     city = models.TextField()
@@ -16,4 +15,4 @@ class Patient(models.Model):
     work_address = models.TextField()
     work = models.TextField()
     phone = models.TextField()
-    email = models.TextField()
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
