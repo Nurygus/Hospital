@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth import authenticate
+from django.contrib.auth.views import LoginView 
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 
@@ -14,3 +15,7 @@ def sign_in(request):
         return HttpResponseRedirect(reverse("doctorsApp:index"))
     else:
         return HttpResponseRedirect(reverse("login:index"))
+
+class SignUpView(LoginView):
+    template_name = "login/signUp.html"
+
