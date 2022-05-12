@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <title>Sorag ugradyň</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'patientsApp/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{% static 'patientsApp/assets/css/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'patientsApp/assets/css/templatemo-574-mexant.css' %}">
+    <link rel="stylesheet" href="{% static 'patientsApp/assets/css/owl.css' %}">
+    <link rel="stylesheet" href="{% static 'patientsApp/assets/css/animate.css' %}">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
+
+  </head>
+
+<body>
+
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky">
+      <div class="container">
+          <div class="row">
+              <div class="col-12">
+                  <nav class="main-nav">
+                      <!-- ***** Menu Start ***** -->
+                      <ul class="nav">
+                          <li class="scroll-to-section"><a href="{% url 'main:index' %}">Home</a></li>
+                          <li class="scroll-to-section"><a href="{% url 'main:index' %}">Hyzmatlar</a></li>
+                          <li class="scroll-to-section"><a href="{% url 'main:index' %}">About</a></li>
+                          <li class="has-sub">
+                              <a href="javascript:void(0)">Pages</a>
+                              <ul class="sub-menu">
+                                  <li><a href="{% url 'main:index' %}">Biz hakda</a></li>
+                                  <li><a href="{% url 'main:index' %}">Hyzmatlar</a></li>
+                                  <li><a href="{% url 'main:index' %}">Habarlaşmak</a></li>
+                              </ul>
+                          </li>
+                          <li class="scroll-to-section"><a href="{% url 'main:index' %}">Testimonials</a></li>
+                          <li><a href="{% url 'main:index' %}">Contact Support</a></li> 
+                      </ul>        
+                      <a class='menu-trigger'>
+                          <span>Menu</span>
+                      </a>
+                      <!-- ***** Menu End ***** -->
+                  </nav>
+              </div>
+          </div>
+      </div>
+  </header>
+  <!-- ***** Header Area End ***** -->
+
+  <!-- ***** Main Banner Area End ***** -->
+
+  <section class="contact-us-form">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+          <div class="section-heading">
+            <h4>Sorag ugradyň</h4>
+          </div>
+        </div>
+        <div class="col-lg-10 offset-lg-1">
+          <form id="contact" method="post">
+            {% csrf_token %}
+            <div class="row">
+              <div class="col-lg-6">
+                <fieldset>
+                  <input type="text" name="theme" id="name" placeholder="Tema..." autocomplete="on" required>
+                </fieldset>
+              </div>
+              <div class="col-lg-12">
+                <fieldset>
+                  <textarea name="message" id="message" placeholder="Şu ýere ýazyň..."></textarea>
+                </fieldset>
+              </div>
+              <div class="col-lg-12">
+                <fieldset>
+                  <button type="submit" id="form-submit" class="orange-button">Ugrat</button>
+                </fieldset>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="map">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 offset-lg-1">
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="info-item">
+                <i class="fa fa-envelope"></i>
+                <h4>Email Address</h4>
+                <a href="#">sabrsky@gmail.com</a>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="info-item">
+                <i class="fa fa-phone"></i>
+                <h4>Phone Number</h4>
+                <a href="#">+99312345678</a>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="info-item">
+                <i class="fa fa-map-marked-alt"></i>
+                <h4>Address</h4>
+                <a href="#">Ashgabat, Turkmenistan</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <p>Copyright © 2022 Sabrsky Co., Ltd. All Rights Reserved. 
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'patientsApp/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'patientsApp/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+    <script src="{% static 'patientsApp/assets/js/isotope.min.js' %}"></script>
+    <script src="{% static 'patientsApp/assets/js/owl-carousel.js' %}"></script>
+    <script src="{% static 'patientsApp/assets/js/wow.js' %}"></script>
+    <script src="{% static 'patientsApp/assets/js/tabs.js' %}"></script>
+    <script src="{% static 'patientsApp/assets/js/swiper.js' %}"></script>
+    <script src="{% static 'patientsApp/assets/js/custom.js' %}"></script>
+    <script>
+      var interleaveOffset = 0.5;
+
+      var swiperOptions = {
+        loop: true,
+        speed: 1000,
+        grabCursor: true,
+        watchSlidesProgress: true,
+        mousewheelControl: true,
+        keyboardControl: true,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev"
+        },
+        on: {
+          progress: function() {
+            var swiper = this;
+            for (var i = 0; i < swiper.slides.length; i++) {
+              var slideProgress = swiper.slides[i].progress;
+              var innerOffset = swiper.width * interleaveOffset;
+              var innerTranslate = slideProgress * innerOffset;
+              swiper.slides[i].querySelector(".slide-inner").style.transform =
+                "translate3d(" + innerTranslate + "px, 0, 0)";
+            }      
+          },
+          touchStart: function() {
+            var swiper = this;
+            for (var i = 0; i < swiper.slides.length; i++) {
+              swiper.slides[i].style.transition = "";
+            }
+          },
+          setTransition: function(speed) {
+            var swiper = this;
+            for (var i = 0; i < swiper.slides.length; i++) {
+              swiper.slides[i].style.transition = speed + "ms";
+              swiper.slides[i].querySelector(".slide-inner").style.transition =
+                speed + "ms";
+            }
+          }
+        }
+      };
+
+      var swiper = new Swiper(".swiper-container", swiperOptions);
+    </script>
+
+  </body>
+</html>
