@@ -51,13 +51,20 @@
           </div>
           <div class="col-lg-6">
             <button type="button" id="buttonSendRequest1" class="service-item">
-              <img class="primary-filter" src="{% static 'Hospital/bootstrap-icons/envelope-fill.svg' %}">
+              <img class="primary-filter" src="{% static 'Hospital/bootstrap-icons/globe.svg' %}">
               <h4>Global hatlar</h4>
               <p>Özüni oňaýsyz duýýan ulanyjylaryň urgadan hatlary.</p>
             </button>
           </div>
           <div class="col-lg-6">
             <button type="button" id="buttonSendRequest2" class="service-item">
+              <img class="primary-filter" src="{% static 'Hospital/bootstrap-icons/envelope.svg' %}">
+              <h4>Hassahana gelen hatlar</h4>
+              <p>Hassahana gönükdirilen näsaglaryň hatlary.</p>
+            </button>
+          </div>
+          <div class="col-lg-6">
+            <button type="button" id="buttonSendRequest3" class="service-item">
               <img class="primary-filter" src="{% static 'Hospital/bootstrap-icons/envelope-paper.svg' %}">
               <h4>Maňa gelen hatlar</h4>
               <p>Size degişli bolan näsaglaryň ugradan hatlary.</p>
@@ -68,7 +75,7 @@
             Hassahana kartasy
           </div>
           <div class="col-lg-6">
-            <button type="button" id="buttonSendRequest3" class="service-item">
+            <button type="button" id="buttonSendRequest4" class="service-item">
               <img class="primary-filter" src="{% static 'Hospital/bootstrap-icons/card-text.svg' %}">
               <h4>Hassahana kartasyny görmek</h4>
               <p>All of our CSS templates are 100% free to use for commercial or business websites.</p>
@@ -142,7 +149,10 @@
         location.href = "{% url 'doctorsApp:localInbox' %}";
       };
       document.getElementById("buttonSendRequest3").onclick = function () {
-        location.href = "{% url 'doctorsApp:localInbox' %}";
+        location.href = "{% url 'doctorsApp:doctorInbox' %}";
+      };
+      document.getElementById("buttonSendRequest4").onclick = function () {
+        location.href = "{% url 'doctorsApp:doctorInbox' %}";
       };
     </script>
   </body>

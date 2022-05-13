@@ -28,10 +28,25 @@
 
     <link rel="stylesheet" href="{% static 'Hospital/css/mainStyles.css' %}">
     <link rel="stylesheet" href="{% static 'doctorsApp/css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'doctorsApp/css/inbox.css' %}">
 
   </head>
 
 <body>
+
+    <!-- Send block -->
+    <form class="send-block" action="{% url 'doctorsApp:localInboxPost' %}" method="post">
+        {% csrf_token %}
+        <h5>Lukmana ugrat</h5>
+        <input id="message-id" type="text" value="" name="message-id">
+        <select class="form-input" name="doctor" id="doctor">
+            {% for doctor in doctors %}
+                <option value="{{ doctor.user.id }}">{{ doctor.user.username }}</option>
+            {% endfor %}
+        </select>
+        <input class="form-input submit-input mt-4 mb-3" type="submit" name="submit" id="" value="Ugrat">
+        <a class="close-icon" href=""><img class="reply-icon primary-filter" src="{% static 'Hospital/bootstrap-icons/x.svg' %}" alt=""></a>
+    </form>
 
   <section class="row">
     <div class="col-2" id="sidebar">
@@ -47,7 +62,30 @@
     <!-- Content -->
     <div class="col-10 services" id="services">
         <div class="container">
-            
+            <table class="table table-striped mt-3">
+                <thead>
+                    <tr>
+                        <th>N</th>
+                        <th>Ady</th>
+                        <th>Hat</th>
+                        <th>Ugradylan senesi</th>
+                        <th>Ulanyjy</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for message in messages %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ message.title }}</td>
+                            <td>{{ message.message }}</td>
+                            <td>{{ message.created_at }}</td>
+                            <td>{{ message.user.username }}</td>
+                            <td class="reply-icon-container"><a id="{{ message.id }}" class="message-forward" href="#"><img class="reply-icon primary-filter" src="{% static 'Hospital/bootstrap-icons/reply-fill.svg' %}" alt=""></a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
         </div>
     </div>
   </section>
@@ -112,5 +150,6 @@
         location.href = "{% url 'patientsApp:create_request' %}";
       };
     </script>
+    <script src="{% static 'doctorsApp/js/inbox.js' %}"></script>
   </body>
 </html>
