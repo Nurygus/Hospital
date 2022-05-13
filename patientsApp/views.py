@@ -14,7 +14,6 @@ from patientsApp.models import PatientsApplications
 
 @login_required
 def index(request):
-    print(timezone.now())
     if isPatient(request):
         return render(request, "patientsApp/index.html")
     else:
@@ -47,8 +46,6 @@ class CreatedApplicationsView(TemplateView):
         context['latest_applications_list'] = PatientsApplications.objects.filter(
             user_id=self.request.user.id
         ).order_by('-created_at')[:5]
-        
-        # Entry.objects.filter(pub_date__year=2005).order_by('-pub_date', 'headline')
         return context
 
 @method_decorator(login_required, name='dispatch')        
