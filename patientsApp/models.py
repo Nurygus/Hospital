@@ -16,3 +16,12 @@ class Patient(models.Model):
     work = models.TextField()
     phone = models.TextField()
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+
+class PatientsApplications(models.Model):
+    title = models.CharField(max_length=100)
+    message = models.TextField()
+    isOpened = models.BooleanField(default=False)
+    hospital = models.ForeignKey(Hospital, on_delete=models.CASCADE, null=True)
+    doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, null=True)
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    createdTime = models.TimeField()

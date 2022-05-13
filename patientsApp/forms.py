@@ -1,11 +1,20 @@
 from django import forms
+from django.contrib.auth.models import User
+from django.utils import timezone
+
+from patientsApp.models import Patient, PatientsApplications
 
 class ApplicationForm(forms.Form):
-    theme = forms.CharField()
+    title = forms.CharField()
     message = forms.CharField(widget=forms.Textarea)
 
-    def send_email(self):
-        print('sdfsdfgsfdgsdfgsfg')
-        print(self.cleaned_data)
-        # send email using the self.cleaned_data dictionary
-        
+    def saveToDatabase(self, request):
+        application = PatientsApplications.objects.create(
+            title = self.cleaned_data['title'], 
+            message = self.cleaned_data['message'], 
+            isOpened = True,
+            user = request.user,
+            createdTime = timezone.now()
+        )
+        application.save()
+   

@@ -108,6 +108,14 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# requests are redirected for login when using the 
+# login_required() decorator, LoginRequiredMixin, or AccessMixin.
+LOGIN_URL = "/login/"
+
+# requests are redirected after login when the LoginView
+# doesn’t get a next GET parameter.
+# LOGIN_REDIRECT_URL = "/"
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
