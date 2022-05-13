@@ -15,8 +15,7 @@ class ApplicationForm(forms.Form):
             is_opened = True,
             created_at = timezone.now(),
             family_doctor = getattr(request.user, 'doctor', None),
-            user = request.user,
-            
+            patient = request.user.patient,     
         )
         application.save()
    
