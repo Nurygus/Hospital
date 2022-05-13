@@ -25,4 +25,4 @@ class PatientsApplications(models.Model):
     created_at = models.DateTimeField()
     doctor = models.ForeignKey(Doctor, models.DO_NOTHING, blank=True, null=True)
     hospital = models.ForeignKey(Hospital, models.DO_NOTHING, blank=True, null=True)
-    user = models.OneToOneField(settings.AUTH_USER_MODEL, models.DO_NOTHING)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)

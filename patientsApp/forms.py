@@ -12,9 +12,10 @@ class ApplicationForm(forms.Form):
         application = PatientsApplications.objects.create(
             title = self.cleaned_data['title'], 
             message = self.cleaned_data['message'], 
-            isOpened = True,
+            is_opened = True,
+            created_at = timezone.now(),
             user = request.user,
-            createdTime = timezone.now()
+            
         )
         application.save()
    

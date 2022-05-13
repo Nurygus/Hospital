@@ -5,6 +5,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.views.generic import TemplateView
 from django.views.generic.edit import FormView
 from django.urls import reverse, reverse_lazy
+from django.utils import timezone
 
 from patientsApp.forms import ApplicationForm
 
@@ -12,6 +13,7 @@ from patientsApp.forms import ApplicationForm
 
 @login_required
 def index(request):
+    print(timezone.now())
     if isPatient(request):
         return render(request, "patientsApp/index.html")
     else:
