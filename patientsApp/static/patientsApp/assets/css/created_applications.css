@@ -1,0 +1,8 @@
+.small-icon-span {
+	width: 22px;
+}
+
+.small-icon-green {
+	width: 22px;
+	color: var(--green-color);
+}

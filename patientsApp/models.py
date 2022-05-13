@@ -23,6 +23,7 @@ class PatientsApplications(models.Model):
     message = models.TextField()
     is_opened = models.IntegerField()
     created_at = models.DateTimeField()
-    doctor = models.ForeignKey(Doctor, models.DO_NOTHING, blank=True, null=True)
+    family_doctor = models.ForeignKey(Doctor, related_name='family_doctor', on_delete=models.DO_NOTHING, null=True)
+    doctor = models.ForeignKey(Doctor, related_name='doctor', on_delete=models.DO_NOTHING, blank=True, null=True)
     hospital = models.ForeignKey(Hospital, models.DO_NOTHING, blank=True, null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
