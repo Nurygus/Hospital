@@ -6,10 +6,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.models import User
 from django.contrib.auth.hashers import make_password
 
-from doctorsApp.models import Doctor
-from doctorsApp.models import Speciality
-from doctorsApp.models import Hospital
-from doctorsApp.models import Department
+from doctorsApp.models import Doctor, Speciality, Hospital, Department
+from patientsApp.models import Patient
 
 # Create your views here.
 
@@ -48,13 +46,20 @@ def insertDoctor(request):
     doctor.save()
 
 def card(request):
-    # getUserData(request)
-    # username = request.POST['username']
-    # password = make_password(request.POST['password'])
-    # user = User(username = username, password = password)
-    # user.save()
-
-    # userType = request.POST['userType']
-    # if userType == 'doctor':
-    
     return render(request, "reg/card.html")
+    
+def cardPost(request):
+    insertUser(request)
+    insertPatient(request)
+    return HttpResponseRedirect(reverse("login:index"))
+
+def insertPatient(request):
+    patient = Patient(date_of_birth = request.POST.get('date_of_birth'),
+                    country = request.POST.get('country'),
+                    city = request.POST.get('city'), 
+                    etrap = request.POST.get('etrap'),
+                    work_address = request.POST.get('work_address'),
+                    work = request.POST.get('work'),
+                    phone = request.POST.get('phone'),
+                    user_id = User.objects.latest('id').id)
+    patient.save()
