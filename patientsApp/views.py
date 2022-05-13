@@ -44,7 +44,7 @@ class CreatedApplicationsView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(CreatedApplicationsView, self).get_context_data(**kwargs)
         context['latest_applications_list'] = PatientsApplications.objects.filter(
-            user_id=self.request.user.id
+            patient_id=self.request.user.patient
         ).order_by('-created_at')[:5]
         return context
 

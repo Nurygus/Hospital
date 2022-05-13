@@ -6,3 +6,8 @@
 	width: 22px;
 	filter: var(--priimary-filter);
 }
+
+.textarea-non-resizeable {
+	width: 100%;
+	resize: none;
+}
