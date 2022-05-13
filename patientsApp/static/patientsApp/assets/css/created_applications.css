@@ -4,5 +4,5 @@
 
 .small-icon-green {
 	width: 22px;
-	color: var(--green-color);
+	filter: var(--priimary-filter);
 }
