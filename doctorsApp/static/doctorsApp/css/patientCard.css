@@ -1,0 +1,9 @@
+.note-block{
+    margin-top: 20px;
+    box-shadow: 1px 1px 5px rgb(210, 210, 210);
+    padding: 15px;
+}
+.note-block > a{
+    font-size: 19px;
+    font-weight: bold;
+}

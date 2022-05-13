@@ -28,7 +28,7 @@
 
     <link rel="stylesheet" href="{% static 'Hospital/css/mainStyles.css' %}">
     <link rel="stylesheet" href="{% static 'doctorsApp/css/index.css' %}">
-    <link rel="stylesheet" href="{% static 'doctorsApp/css/ownPatientsList.css' %}">
+    <link rel="stylesheet" href="{% static 'doctorsApp/css/patientCard.css' %}">
 
   </head>
 
@@ -49,44 +49,16 @@
     <div class="col-10 services" id="services">
         <div class="container">
             <div class="col-12 block-group-header">
-              Maňa degişli maşgalalar
+              {{ patient.user.username }} näsagyň kartasy
             </div>
-            <table class="table table-striped mt-3">
-                <thead>
-                    <tr>
-                        <th>N</th>
-                        <th>Ady</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for patient in patients %}
-                        <tr>
-                            <td class="table-counter">{{ forloop.counter }}</td>
-                            <td><a href="">{{ patient.user.username }}</a></td>
-                        </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-
-            <div class="col-12 block-group-header">
-              Maňa degişdirilen näsaglar
-            </div>
-            <table class="table table-striped mt-3">
-                <thead>
-                    <tr>
-                        <th>N</th>
-                        <th>Ady</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for message in messages %}
-                        <tr>
-                            <td class="table-counter">{{ forloop.counter }}</td>
-                            <td><a href="">{{ message.patient.user.username }}</a></td>
-                        </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+            {% for note in patientCard %}
+                <div class="col-12 note-block">
+                    <a href="">{{ note.name }}</a>
+                    <p>{{ note.content }}</p>
+                    <p>{{ note.created_at }}</p>
+                    <p>Ýazgyny ýerine ýetiren {{ note.doctor.user.username }}</p>
+                </div>
+            {% endfor %}
         </div>
     </div>
   </section>

@@ -1,5 +1,6 @@
 from django.db import models
-from doctorsApp.models import Hospital, Doctor
+from doctorsApp.models import Hospital
+from doctorsApp.models import Doctor
 from django.conf import settings
 from django.contrib.auth.models import User
 

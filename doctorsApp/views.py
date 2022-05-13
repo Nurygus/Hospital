@@ -7,9 +7,14 @@ from django.contrib.auth.models import User
 
 from doctorsApp.models import Doctor
 from doctorsApp.models import Hospital
+from doctorsApp.models import Survey
+from doctorsApp.models import Diagnostic
+from doctorsApp.models import Examination
+
 from patientsApp.models import Patient
 from patientsApp.models import PatientsApplications
 
+from itertools import chain
 
 # Create your views here.
 
@@ -95,5 +100,17 @@ def ownPatientsList(request):
 
 @login_required
 def patientCard(request, patientId):
-    return render(request, "doctorsApp/doctorInbox.html")
-    
+    surveys = Survey.objects.filter(patient_id = patientId)
+    diagnostics = Diagnostic.objects.filter(patient_id = patientId)
+    examinations = Examination.objects.filter(patient_id = patientId)
+
+    patientCard = sorted(
+        chain(surveys, diagnostics, examinations),
+        key=lambda car: car.created_at, reverse=False)
+
+    content = {
+        'patient': Patient.objects.get(id = patientId),
+        'patientCard': patientCard
+    }
+    return render(request, "doctorsApp/patientCard.html", content)
+
