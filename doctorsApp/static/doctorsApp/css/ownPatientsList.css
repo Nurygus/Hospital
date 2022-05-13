@@ -1,0 +1,9 @@
+.table th{
+    color: var(--primary-color);
+}
+.table td{
+    line-height: 30px;
+}
+.table-counter{
+    width: 20px;
+}
