@@ -11,19 +11,14 @@
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <title>Mexant - Financial HTML5 Template</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="{% static 'patientsApp/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-
+    <title>Patient</title>
 
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="{% static 'patientsApp/assets/css/fontawesome.css' %}">
     <link rel="stylesheet" href="{% static 'patientsApp/assets/css/templatemo-574-mexant.css' %}">
-    <link rel="stylesheet" href="{% static 'patientsApp/assets/css/owl.css' %}">
-    <link rel="stylesheet" href="{% static 'patientsApp/assets/css/animate.css' %}">
-    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
 
+    <link rel="stylesheet" href="{% static 'Hospital/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'Hospital/css/mainStyles.css' %}">
   </head>
 
 <body>
@@ -35,11 +30,6 @@
           <div class="row">
               <div class="col-12">
                   <nav class="main-nav">
-                      <!-- ***** Logo Start ***** -->
-                      <a href="index.html" class="logo">
-                          <img src="{% static 'patientsApp/assets/images/logo.png' %}" alt="">
-                      </a>
-                      <!-- ***** Logo End ***** -->
                       <!-- ***** Menu Start ***** -->
                       <ul class="nav">
                           <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
@@ -80,7 +70,7 @@
         <div class="col-lg-6">
           <button type="button" id="buttonSendRequest2" class="service-item">
             <i class="fas fa-cloud"></i>
-            <h4>HTML5 Web Pages</h4>
+            <h4>Ugradan soraglarym</h4>
             <p>Templates are based on Bootstrap 5 CSS framework. You can easily adapt or modify based on your needs.</p>
           </button>
         </div>
@@ -116,51 +106,6 @@
     </div>
   </section>
 
-  <section class="testimonials" id="testimonials">
-    <div class="container">
-      {% block lastMessages %}{% endblock %}
-      <div class="row">
-        <div class="col-lg-6 offset-lg-3">
-          <div class="section-heading">
-            <h6>Testimonials</h6>
-            <h4>What They Say</h4>
-          </div>
-        </div>
-        <div class="col-lg-10 offset-lg-1">
-          <div class="owl-testimonials owl-carousel" style="position: relative; z-index: 5;">
-            <div class="item">
-              <i class="fa fa-quote-left"></i>
-              <p>“Donec et nunc massa. Nullam non felis dignissim, dapibus turpis semper, vulputate lorem. Nam volutpat posuere tellus, in porttitor justo interdum nec. Aenean in dapibus risus, in euismod ligula. Aliquam vel scelerisque elit.”</p>
-              <h4>David Eigenberg</h4>
-              <span>CEO of Mexant</span>
-              <div class="right-image">
-                <img src="{% static 'patientsApp/assets/images/testimonials-01.jpg' %}" alt="">
-              </div>
-            </div>
-            <div class="item">
-              <i class="fa fa-quote-left"></i>
-              <p>“Etiam id ligula risus. Fusce fringilla nisl nunc, nec rutrum lectus cursus nec. In blandit nibh dolor, at rutrum leo accumsan porta. Nullam pulvinar eros porttitor risus condimentum tempus.”</p>
-              <h4>Andrew Garfield</h4>
-              <span>CTO of Mexant</span>
-              <div class="right-image">
-                <img src="{% static 'patientsApp/assets/images/testimonials-01.jpg' %}" alt="">
-              </div>
-            </div>
-            <div class="item">
-              <i class="fa fa-quote-left"></i>
-              <p>“Ut dictum vehicula massa, ac pharetra leo tincidunt eu. Phasellus in tristique magna, ac gravida leo. Integer sed lorem sapien. Ut viverra mauris sed lobortis commodo.”</p>
-              <h4>George Lopez</h4>
-              <span>Crypto Manager</span>
-              <div class="right-image">
-                <img src="{% static 'patientsApp/assets/images/testimonials-01.jpg' %}" alt="">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <footer>
     <div class="container">
       <div class="row">
@@ -176,59 +121,12 @@
     <script src="{% static 'patientsApp/vendor/jquery/jquery.min.js' %}"></script>
     <script src="{% static 'patientsApp/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 
-    <script src="{% static 'patientsApp/assets/js/isotope.min.js' %}"></script>
-    <script src="{% static 'patientsApp/assets/js/owl-carousel.js' %}"></script>
-    <script src="{% static 'patientsApp/assets/js/wow.js' %}"></script>
-    <script src="{% static 'patientsApp/assets/js/tabs.js' %}"></script>
-    <script src="{% static 'patientsApp/assets/js/swiper.js' %}"></script>
-    <script src="{% static 'patientsApp/assets/js/custom.js' %}"></script>
-    <script>
-      var interleaveOffset = 0.5;
-
-      var swiperOptions = {
-        loop: true,
-        speed: 1000,
-        grabCursor: true,
-        watchSlidesProgress: true,
-        mousewheelControl: true,
-        keyboardControl: true,
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev"
-        },
-        on: {
-          progress: function() {
-            var swiper = this;
-            for (var i = 0; i < swiper.slides.length; i++) {
-              var slideProgress = swiper.slides[i].progress;
-              var innerOffset = swiper.width * interleaveOffset;
-              var innerTranslate = slideProgress * innerOffset;
-              swiper.slides[i].querySelector(".slide-inner").style.transform =
-                "translate3d(" + innerTranslate + "px, 0, 0)";
-            }      
-          },
-          touchStart: function() {
-            var swiper = this;
-            for (var i = 0; i < swiper.slides.length; i++) {
-              swiper.slides[i].style.transition = "";
-            }
-          },
-          setTransition: function(speed) {
-            var swiper = this;
-            for (var i = 0; i < swiper.slides.length; i++) {
-              swiper.slides[i].style.transition = speed + "ms";
-              swiper.slides[i].querySelector(".slide-inner").style.transition =
-                speed + "ms";
-            }
-          }
-        }
-      };
-
-      var swiper = new Swiper(".swiper-container", swiperOptions);
-    </script>
     <script>
       document.getElementById("buttonSendRequest1").onclick = function () {
         location.href = "{% url 'patientsApp:create_request' %}";
+      };
+      document.getElementById("buttonSendRequest2").onclick = function () {
+        location.href = "{% url 'patientsApp:created_applications' %}";
       };
     </script>
   </body>

@@ -8,6 +8,7 @@ from django.urls import reverse, reverse_lazy
 from django.utils import timezone
 
 from patientsApp.forms import ApplicationForm
+from patientsApp.models import PatientsApplications
 
 # Create your views here.
 
@@ -36,6 +37,19 @@ class CreateRequestView(FormView):
     def form_valid(self, form):
         form.saveToDatabase(self.request)
         return super().form_valid(form)
+
+@method_decorator(login_required, name='dispatch')
+class CreatedApplicationsView(TemplateView):
+    template_name = "patientsApp/created_applications.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(CreatedApplicationsView, self).get_context_data(**kwargs)
+        context['latest_applications_list'] = PatientsApplications.objects.filter(
+            user_id=self.request.user.id
+        ).order_by('-created_at')[:5]
+        
+        # Entry.objects.filter(pub_date__year=2005).order_by('-pub_date', 'headline')
+        return context
 
 @method_decorator(login_required, name='dispatch')        
 class SendRequestView(TemplateView):
