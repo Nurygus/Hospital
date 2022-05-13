@@ -18,10 +18,11 @@ class Patient(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
 class PatientsApplications(models.Model):
+    id = models.BigAutoField(primary_key=True)
     title = models.CharField(max_length=100)
     message = models.TextField()
-    isOpened = models.BooleanField(default=False)
-    hospital = models.ForeignKey(Hospital, on_delete=models.CASCADE, null=True)
-    doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, null=True)
-    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    createdTime = models.TimeField()
+    is_opened = models.IntegerField()
+    created_at = models.DateTimeField()
+    doctor = models.ForeignKey(Doctor, models.DO_NOTHING, blank=True, null=True)
+    hospital = models.ForeignKey(Hospital, models.DO_NOTHING, blank=True, null=True)
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, models.DO_NOTHING)

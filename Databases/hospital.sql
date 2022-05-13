@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 12, 2022 at 02:22 PM
+-- Generation Time: May 13, 2022 at 11:50 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.5
 
@@ -109,7 +109,11 @@ INSERT INTO `auth_permission` (`id`, `name`, `content_type_id`, `codename`) VALU
 (45, 'Can add patient', 12, 'add_patient'),
 (46, 'Can change patient', 12, 'change_patient'),
 (47, 'Can delete patient', 12, 'delete_patient'),
-(48, 'Can view patient', 12, 'view_patient');
+(48, 'Can view patient', 12, 'view_patient'),
+(49, 'Can add patients applications', 13, 'add_patientsapplications'),
+(50, 'Can change patients applications', 13, 'change_patientsapplications'),
+(51, 'Can delete patients applications', 13, 'delete_patientsapplications'),
+(52, 'Can view patients applications', 13, 'view_patientsapplications');
 
 -- --------------------------------------------------------
 
@@ -136,9 +140,11 @@ CREATE TABLE `auth_user` (
 --
 
 INSERT INTO `auth_user` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES
-(1, 'pbkdf2_sha256$320000$FRnkjUjgQV6ngrWnf6DDY3$jBrdd3+HZ/9MWbfGs1+MXq+1GNTDwUAou/RoOPdssk4=', '2022-05-12 11:44:40.088954', 1, 'Bega', '', '', 'bega2207.bb@gmail.com', 1, 1, '2022-05-01 10:16:10.655890'),
+(1, 'pbkdf2_sha256$320000$FRnkjUjgQV6ngrWnf6DDY3$jBrdd3+HZ/9MWbfGs1+MXq+1GNTDwUAou/RoOPdssk4=', '2022-05-13 09:20:57.233992', 1, 'Bega', '', '', 'bega2207.bb@gmail.com', 1, 1, '2022-05-01 10:16:10.655890'),
 (2, 'pbkdf2_sha256$320000$y1Hm25X6vBpc2Ve3paxhoX$cmWWNfart1eTdzOGae/DA0cx1z7ynGL2ogsZaLGGy68=', '2022-05-12 11:50:14.910040', 0, 'Muhammet', '', '', 'muhammet@gmail.com', 0, 1, '2022-05-10 15:23:01.000000'),
-(3, 'pbkdf2_sha256$320000$4VwNnT1vByb0XF2UgU0ROB$NoX3E5uDyjb3rAbVPw9M7VXo95GyokIDbC838VE7A/c=', '2022-05-12 11:59:21.751843', 0, 'Patient', '', '', '', 0, 1, '2022-05-12 08:58:37.000000');
+(3, 'pbkdf2_sha256$320000$4VwNnT1vByb0XF2UgU0ROB$NoX3E5uDyjb3rAbVPw9M7VXo95GyokIDbC838VE7A/c=', '2022-05-13 09:17:46.481435', 0, 'Patient', '', '', '', 0, 1, '2022-05-12 08:58:37.000000'),
+(4, 'hospitalpassword', NULL, 0, 'Doctor', '', '', '', 0, 1, '2022-05-12 13:13:32.814658'),
+(11, 'pbkdf2_sha256$320000$SmhuEHR4bU0hI8ZO309Plp$ntSuhqKQZoRI/KYzv4YapznTrjW4J+1W8AxMkhhM/t0=', NULL, 0, 'Berdi', '', '', 'berdi@gmail.com', 0, 1, '2022-05-12 17:02:13.601679');
 
 -- --------------------------------------------------------
 
@@ -243,7 +249,11 @@ INSERT INTO `django_admin_log` (`id`, `action_time`, `object_id`, `object_repr`,
 (17, '2022-05-12 09:03:13.314150', '2', 'Muhammet', 2, '[{\"changed\": {\"fields\": [\"password\"]}}]', 4, 1),
 (18, '2022-05-12 09:44:23.151593', '3', 'Patient', 2, '[{\"changed\": {\"fields\": [\"Username\"]}}]', 4, 1),
 (19, '2022-05-12 11:46:41.602842', '1', 'Patient object (1)', 1, '[{\"added\": {}}]', 12, 1),
-(20, '2022-05-12 11:46:46.064456', '1', 'Patient object (1)', 2, '[]', 12, 1);
+(20, '2022-05-12 11:46:46.064456', '1', 'Patient object (1)', 2, '[]', 12, 1),
+(21, '2022-05-13 09:48:41.757490', '1', 'Speciality object (1)', 1, '[{\"added\": {}}]', 10, 1),
+(22, '2022-05-13 09:49:16.505754', '1', 'Department object (1)', 1, '[{\"added\": {}}]', 8, 1),
+(23, '2022-05-13 09:49:44.443844', '1', 'Doctor object (1)', 1, '[{\"added\": {}}]', 7, 1),
+(24, '2022-05-13 09:50:38.886248', '1', 'Patient object (1)', 1, '[{\"added\": {}}]', 12, 1);
 
 -- --------------------------------------------------------
 
@@ -273,6 +283,7 @@ INSERT INTO `django_content_type` (`id`, `app_label`, `model`) VALUES
 (9, 'doctorsApp', 'hospital'),
 (10, 'doctorsApp', 'speciality'),
 (12, 'patientsApp', 'patient'),
+(13, 'patientsApp', 'patientsapplications'),
 (6, 'sessions', 'session');
 
 -- --------------------------------------------------------
@@ -339,7 +350,17 @@ INSERT INTO `django_migrations` (`id`, `app`, `name`, `applied`) VALUES
 (44, 'patientsApp', '0004_remove_patient_login_remove_patient_name_and_more', '2022-05-12 08:55:45.318226'),
 (45, 'patientsApp', '0005_delete_patient', '2022-05-12 11:43:25.916360'),
 (46, 'patientsApp', '0006_initial', '2022-05-12 11:43:36.547267'),
-(47, 'patientsApp', '0007_remove_patient_email', '2022-05-12 11:46:34.507637');
+(47, 'patientsApp', '0007_remove_patient_email', '2022-05-12 11:46:34.507637'),
+(48, 'patientsApp', '0008_alter_patient_doctor_alter_patient_hospital', '2022-05-12 17:22:59.128580'),
+(49, 'patientsApp', '0008_delete_patient', '2022-05-13 09:16:55.286295'),
+(50, 'doctorsApp', '0023_remove_doctor_department_remove_doctor_hospital_and_more', '2022-05-13 09:16:55.933781'),
+(51, 'doctorsApp', '0024_initial', '2022-05-13 09:16:55.964177'),
+(52, 'doctorsApp', '0025_department_hospital_doctor_department_hospital', '2022-05-13 09:16:56.248169'),
+(53, 'patientsApp', '0009_initial', '2022-05-13 09:16:56.613968'),
+(54, 'patientsApp', '0010_alter_patientsapplications_doctor_and_more', '2022-05-13 09:16:56.859512'),
+(55, 'patientsApp', '0011_merge_20220513_1223', '2022-05-13 09:16:56.872760'),
+(56, 'patientsApp', '0012_alter_patientsapplications_options', '2022-05-13 09:39:24.093237'),
+(57, 'patientsApp', '0013_alter_patientsapplications_options', '2022-05-13 09:39:24.107173');
 
 -- --------------------------------------------------------
 
@@ -358,7 +379,7 @@ CREATE TABLE `django_session` (
 --
 
 INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
-('0pcrdwozqrp223p7qmomryzt0ex425gh', '.eJxVjDkOwjAUBe_iGllevrFDSc8Zor-BAyiR4qRC3B0ipYD2zcx7mR7XpfZr07kfxJxMNIffjZAfOm5A7jjeJsvTuMwD2U2xO232Mok-z7v7d1Cx1W_dgegxwBUhsYMQQElyKTFTCUpYXGag4oiTRMCsPvrcYSRRlzh4Nu8P4g039A:1np7TV:cq-SN-0nSvUExPm_HmFzdsZo12gnS09TuqWU4_WQE8c', '2022-05-26 11:59:21.758063'),
+('3ifityf3vrxfivx9edbuehign9gp9va0', '.eJxVjE0OwiAYBe_C2pBSoAWX7j0D-f6QqqFJaVfGu2uTLnT7Zua9VIJtLWlrsqSJ1VkZdfrdEOghdQd8h3qbNc11XSbUu6IP2vR1ZnleDvfvoEAr3xqJMxkKILHLzpEV8pgtRZvFSsyCHEOP6I3zg5eRuMcAAfKIA0oH6v0BM_M56Q:1npRTl:qqSGfhJ9poTKFKsOgfy4hSXBkNhqZJ5FGWipf8p3EoU', '2022-05-27 09:20:57.239610'),
 ('c9bza8whzal00szvbj79i9h0qjh6vsey', '.eJxVjDsOAiEUAO9CbQh_iKW9ZyCPx0NWDSTLbrXx7oZkC21nJnOwCPtW4z5ojUtmV6bY5ZclwBe1KfIT2qNz7G1bl8Rnwk87-L1net_O9m9QYdS5RUMB0KBICCSyDdqFpKSxWhl0haTzKMhC0egCFFO8SspDRokCSmafL_qLONk:1np5yh:K_wHcLT2m2WkdiDB2Xt9sAQ09Ys2CqLeRqnVpWYFZzY', '2022-05-26 10:23:27.183407'),
 ('fib4g1ucw7946plp2rnab44x6y8vm0xt', '.eJxVjDsOAiEUAO9CbQh_iKW9ZyCPx0NWDSTLbrXx7oZkC21nJnOwCPtW4z5ojUtmV6bY5ZclwBe1KfIT2qNz7G1bl8Rnwk87-L1net_O9m9QYdS5RUMB0KBICCSyDdqFpKSxWhl0haTzKMhC0egCFFO8SspDRokCSmafL_qLONk:1np5mx:ME2sVOK2XHR9_N_tvP2ycS6T7OJq1PULOOgs0crZi1Y', '2022-05-26 10:11:19.290912'),
 ('ft5fcu8bjtjigldnr0k0bw2bk8na56a0', '.eJxVjE0OwiAYBe_C2pBSoAWX7j0D-f6QqqFJaVfGu2uTLnT7Zua9VIJtLWlrsqSJ1VkZdfrdEOghdQd8h3qbNc11XSbUu6IP2vR1ZnleDvfvoEAr3xqJMxkKILHLzpEV8pgtRZvFSsyCHEOP6I3zg5eRuMcAAfKIA0oH6v0BM_M56Q:1np4j3:LZKYcjX2g_dLK0Yy_mLaUKJ1BeZ6ikaAX0TlwDHUcxA', '2022-05-26 09:03:13.337765'),
@@ -404,7 +425,7 @@ CREATE TABLE `doctorsapp_doctor` (
 --
 
 INSERT INTO `doctorsapp_doctor` (`id`, `position_at_work`, `department_id`, `hospital_id`, `speciality_id`, `user_id`) VALUES
-(1, 'Baş çaga lukmany', 1, 1, 1, 2);
+(1, 'Baş çaga lukmany', 1, 1, 1, 4);
 
 -- --------------------------------------------------------
 
@@ -509,6 +530,23 @@ CREATE TABLE `patientsapp_patient` (
 
 INSERT INTO `patientsapp_patient` (`id`, `date_of_birth`, `country`, `city`, `etrap`, `work_address`, `work`, `phone`, `doctor_id`, `hospital_id`, `user_id`) VALUES
 (1, '2000-06-14', 'Türkmenistan', 'Aşgabat', 'Köpetdag', 'Kärhana HK', 'Menejment bölüminiň hünärmeni', '+99365123456', 1, 1, 3);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `patientsapp_patientsapplications`
+--
+
+CREATE TABLE `patientsapp_patientsapplications` (
+  `id` bigint(20) NOT NULL,
+  `title` varchar(100) NOT NULL,
+  `message` longtext NOT NULL,
+  `is_opened` tinyint(1) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `doctor_id` bigint(20) DEFAULT NULL,
+  `hospital_id` bigint(20) DEFAULT NULL,
+  `user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -717,6 +755,15 @@ ALTER TABLE `patientsapp_patient`
   ADD KEY `patientsApp_patient_hospital_id_a89ce579_fk_doctorsAp` (`hospital_id`);
 
 --
+-- Indexes for table `patientsapp_patientsapplications`
+--
+ALTER TABLE `patientsapp_patientsapplications`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `user_id` (`user_id`),
+  ADD KEY `patientsApp_patients_doctor_id_3eace8d3_fk_doctorsAp` (`doctor_id`),
+  ADD KEY `patientsApp_patients_hospital_id_a42cd2ab_fk_doctorsAp` (`hospital_id`);
+
+--
 -- Indexes for table `referrals`
 --
 ALTER TABLE `referrals`
@@ -760,13 +807,13 @@ ALTER TABLE `auth_group_permissions`
 -- AUTO_INCREMENT for table `auth_permission`
 --
 ALTER TABLE `auth_permission`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT for table `auth_user`
 --
 ALTER TABLE `auth_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `auth_user_groups`
@@ -802,19 +849,19 @@ ALTER TABLE `diagnostic_types`
 -- AUTO_INCREMENT for table `django_admin_log`
 --
 ALTER TABLE `django_admin_log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `django_content_type`
 --
 ALTER TABLE `django_content_type`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `django_migrations`
 --
 ALTER TABLE `django_migrations`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT for table `doctorsapp_department`
@@ -863,6 +910,12 @@ ALTER TABLE `in_hospital_times`
 --
 ALTER TABLE `patientsapp_patient`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `patientsapp_patientsapplications`
+--
+ALTER TABLE `patientsapp_patientsapplications`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `referrals`
@@ -948,6 +1001,14 @@ ALTER TABLE `patientsapp_patient`
   ADD CONSTRAINT `patientsApp_patient_doctor_id_029b013d_fk_doctorsApp_doctor_id` FOREIGN KEY (`doctor_id`) REFERENCES `doctorsapp_doctor` (`id`),
   ADD CONSTRAINT `patientsApp_patient_hospital_id_a89ce579_fk_doctorsAp` FOREIGN KEY (`hospital_id`) REFERENCES `doctorsapp_hospital` (`id`),
   ADD CONSTRAINT `patientsApp_patient_user_id_37fe8ba5_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`);
+
+--
+-- Constraints for table `patientsapp_patientsapplications`
+--
+ALTER TABLE `patientsapp_patientsapplications`
+  ADD CONSTRAINT `patientsApp_patients_doctor_id_3eace8d3_fk_doctorsAp` FOREIGN KEY (`doctor_id`) REFERENCES `doctorsapp_doctor` (`id`),
+  ADD CONSTRAINT `patientsApp_patients_hospital_id_a42cd2ab_fk_doctorsAp` FOREIGN KEY (`hospital_id`) REFERENCES `doctorsapp_hospital` (`id`),
+  ADD CONSTRAINT `patientsApp_patients_user_id_37aa5ee7_fk_auth_user` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
