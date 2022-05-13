@@ -92,3 +92,8 @@ def ownPatientsList(request):
         'messages': messages
     }
     return render(request, "doctorsApp/ownPatientsList.html", context)
+
+@login_required
+def patientCard(request):
+    return
+    
