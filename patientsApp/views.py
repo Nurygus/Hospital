@@ -7,8 +7,11 @@ from django.views.generic.edit import FormView
 from django.urls import reverse, reverse_lazy
 from django.utils import timezone
 
-from patientsApp.forms import ApplicationForm
+from patientsApp.forms import Patient, ApplicationForm
 from patientsApp.models import PatientsApplications
+from doctorsApp.models import Survey, Diagnostic, Examination
+
+from itertools import chain
 
 # Create your views here.
 
@@ -48,19 +51,26 @@ class CreatedApplicationsView(TemplateView):
         ).order_by('-created_at')[:5]
         return context
 
+@method_decorator(login_required, name='dispatch')
+class CardView(TemplateView):
+    template_name = "patientsApp/card.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(CardView, self).get_context_data(**kwargs)
+        
+        surveys = Survey.objects.filter(patient_id = self.request.user.patient.id)
+        diagnostics = Diagnostic.objects.filter(patient_id = self.request.user.patient.id)
+        examinations = Examination.objects.filter(patient_id = self.request.user.patient.id)
+        
+        patientCard = sorted(
+            chain(surveys, diagnostics, examinations),
+            key=lambda car: car.created_at, reverse=False)
+
+        context['patient'] = Patient.objects.get(id = self.request.user.patient.id),
+        context['patientCard'] = patientCard
+        
+        return context
+
 @method_decorator(login_required, name='dispatch')        
 class SendRequestView(TemplateView):
     template_name = "patientsApp/create_request.html"
-
-class AboutUsView(TemplateView):
-    template_name = "main/index.html"
-
-    # def get(self, request):
-    #     return HttpResponse("test")
-
-    # def post(self, request):
-    #     # do something
-    #     return redirect("test")
-
-class ContactUsView(TemplateView):
-    template_name = "main/index.html"
