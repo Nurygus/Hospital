@@ -26,4 +26,4 @@ class PatientsApplications(models.Model):
     family_doctor = models.ForeignKey(Doctor, related_name='family_doctor', on_delete=models.DO_NOTHING, null=True)
     doctor = models.ForeignKey(Doctor, related_name='doctor', on_delete=models.DO_NOTHING, blank=True, null=True)
     hospital = models.ForeignKey(Hospital, models.DO_NOTHING, blank=True, null=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    patient = models.ForeignKey(Patient, on_delete=models.CASCADE, blank=True, null=True)
