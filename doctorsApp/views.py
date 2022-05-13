@@ -94,6 +94,6 @@ def ownPatientsList(request):
     return render(request, "doctorsApp/ownPatientsList.html", context)
 
 @login_required
-def patientCard(request):
-    return
+def patientCard(request, patientId):
+    return render(request, "doctorsApp/doctorInbox.html")
     

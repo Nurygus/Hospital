@@ -23,37 +23,34 @@ class Doctor(models.Model):
     position_at_work = models.TextField()
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
-class SurveyType(models.Model):
-    name = models.TextField()
+# class SurveyType(models.Model):
+#     name = models.TextField()
 
+# class Survey(models.Model):
+#     name = models.TextField()
+#     content = models.TextField()
+#     patient_id = models.IntegerField()
+#     doctor_id = models.IntegerField()
 
-class Survey(models.Model):
-    name = models.TextField()
-    content = models.TextField()
-    patient_id = models.IntegerField()
-    doctor_id = models.IntegerField()
+# class ExaminationType(models.Model):
+#     name = models.TextField()
 
-class ExaminationType(models.Model):
-    name = models.TextField()
+# class Examination(models.Model):
+#     name = models.TextField()
+#     content = models.TextField()
+#     patient_id = models.IntegerField()
+#     doctor_id = models.IntegerField()
 
+# class DiagnosticMethod(models.Model):
+#     name = models.TextField()
 
-class Examination(models.Model):
-    name = models.TextField()
-    content = models.TextField()
-    patient_id = models.IntegerField()
-    doctor_id = models.IntegerField()
+# class DiagnosticType(models.Model):
+#     name = models.TextField()
+#     diagnostic_method_id = models.IntegerField()
 
-
-class DiagnosticMethod(models.Model):
-    name = models.TextField()
-
-class DiagnosticType(models.Model):
-    name = models.TextField()
-    diagnostic_method_id = models.IntegerField()
-
-class Diagnostic(models.Model):
-    diagnostic_type_id = models.IntegerField()
-    name = models.TextField()
-    content = models.TextField()
-    patient_id = models.IntegerField()
-    doctor_id = models.IntegerField()
+# class Diagnostic(models.Model):
+#     diagnostic_type_id = models.IntegerField()
+#     name = models.TextField()
+#     content = models.TextField()
+#     patient_id = models.IntegerField()
+#     doctor_id = models.IntegerField()
