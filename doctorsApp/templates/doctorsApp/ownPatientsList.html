@@ -82,7 +82,7 @@
                     {% for message in messages %}
                         <tr>
                             <td class="table-counter">{{ forloop.counter }}</td>
-                            <td><a href="">{{ message.patient }}</a></td>
+                            <td><a href="">{{ message.patient.user.username }}</a></td>
                         </tr>
                     {% endfor %}
                 </tbody>
