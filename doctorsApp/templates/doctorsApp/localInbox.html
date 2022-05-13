@@ -41,7 +41,7 @@
         <input id="message-id" type="text" value="" name="message-id">
         <select class="form-input" name="doctor" id="doctor">
             {% for doctor in doctors %}
-                <option value="{{ doctor.user.id }}">{{ doctor.user.username }}</option>
+                <option value="{{ doctor.id }}">{{ doctor.user.username }}</option>
             {% endfor %}
         </select>
         <input class="form-input submit-input mt-4 mb-3" type="submit" name="submit" id="" value="Ugrat">

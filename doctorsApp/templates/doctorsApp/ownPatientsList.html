@@ -28,6 +28,7 @@
 
     <link rel="stylesheet" href="{% static 'Hospital/css/mainStyles.css' %}">
     <link rel="stylesheet" href="{% static 'doctorsApp/css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'doctorsApp/css/inbox.css' %}">
 
   </head>
 
@@ -43,46 +44,27 @@
         <li><a href="#">Lukman profili</a></li>
       </ul>
     </div>
+    
+    <!-- Content -->
     <div class="col-10 services" id="services">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 block-group-header">
-            Hatlar
-          </div>
-          <div class="col-lg-6">
-            <button type="button" id="buttonSendRequest1" class="service-item">
-              <img class="primary-filter" src="{% static 'Hospital/bootstrap-icons/globe.svg' %}">
-              <h4>Global hatlar</h4>
-              <p>Özüni oňaýsyz duýýan ulanyjylaryň urgadan hatlary.</p>
-            </button>
-          </div>
-          <div class="col-lg-6">
-            <button type="button" id="buttonSendRequest2" class="service-item">
-              <img class="primary-filter" src="{% static 'Hospital/bootstrap-icons/envelope.svg' %}">
-              <h4>Hassahana gelen hatlar</h4>
-              <p>Hassahana gönükdirilen näsaglaryň hatlary.</p>
-            </button>
-          </div>
-          <div class="col-lg-6">
-            <button type="button" id="buttonSendRequest3" class="service-item">
-              <img class="primary-filter" src="{% static 'Hospital/bootstrap-icons/envelope-paper.svg' %}">
-              <h4>Maňa gelen hatlar</h4>
-              <p>Size degişli bolan näsaglaryň ugradan hatlary.</p>
-            </button>
-          </div>
-
-          <div class="col-12 block-group-header">
-            Hassahana kartasy
-          </div>
-          <div class="col-lg-6">
-            <button type="button" id="buttonSendRequest4" class="service-item">
-              <img class="primary-filter" src="{% static 'Hospital/bootstrap-icons/card-text.svg' %}">
-              <h4>Hassahana kartasyny görmek</h4>
-              <p>Özüme degişli bolan näsaglaryň kartalaryny görmek.</p>
-            </button>
-          </div>
+        <div class="container">
+            <table class="table table-striped mt-3">
+                <thead>
+                    <tr>
+                        <th>N</th>
+                        <th>Ady</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for patient in patients %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ patient.user.username }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
         </div>
-      </div>
     </div>
   </section>
 
@@ -143,17 +125,9 @@
     </script>
     <script>
       document.getElementById("buttonSendRequest1").onclick = function () {
-        location.href = "{% url 'doctorsApp:globalInbox' %}";
-      };
-      document.getElementById("buttonSendRequest2").onclick = function () {
-        location.href = "{% url 'doctorsApp:localInbox' %}";
-      };
-      document.getElementById("buttonSendRequest3").onclick = function () {
-        location.href = "{% url 'doctorsApp:doctorInbox' %}";
-      };
-      document.getElementById("buttonSendRequest4").onclick = function () {
-        location.href = "{% url 'doctorsApp:ownPatientsList' %}";
+        location.href = "{% url 'patientsApp:create_request' %}";
       };
     </script>
+    <script src="{% static 'doctorsApp/js/inbox.js' %}"></script>
   </body>
 </html>

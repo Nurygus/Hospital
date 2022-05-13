@@ -7,6 +7,7 @@ from django.contrib.auth.models import User
 
 from doctorsApp.models import Doctor
 from doctorsApp.models import Hospital
+from patientsApp.models import Patient
 from patientsApp.models import PatientsApplications
 
 
@@ -74,10 +75,20 @@ def updateDoctorOfMessage(request):
 
 @login_required
 def doctorInbox(request):
-    messages = PatientsApplications.objects.raw('SELECT * FROM patientsapp_patientsapplications WHERE doctor_id = ' + str(request.user.id))
+    messages = PatientsApplications.objects.raw('SELECT * FROM patientsapp_patientsapplications WHERE doctor_id = ' + str(request.user.doctor.id))
 
     context = {
         'messages': messages
     }
-    return render(request, "doctorsApp/doctorInbox.html", context) 
+    return render(request, "doctorsApp/doctorInbox.html", context)
 
+@login_required
+def ownPatientsList(request):
+    patients = Patient.objects.raw('SELECT * FROM patientsapp_patient WHERE doctor_id = ' + str(request.user.doctor.id) )
+    messages = PatientsApplications.objects.raw('SELECT * FROM patientsapp_patientsapplications WHERE doctor_id = ' + str(request.user.doctor.id) )
+
+    context = {
+        'patients': patients,
+        'messages': messages
+    }
+    return render(request, "doctorsApp/ownPatientsList.html", context)

@@ -11,4 +11,5 @@ urlpatterns = [
     path('localInbox/', views.localInbox, name='localInbox'),
     path('localInboxPost/', views.localInboxPost, name='localInboxPost'),
     path('doctorInbox/', views.doctorInbox, name='doctorInbox'),
+    path('ownPatientsList/', views.ownPatientsList, name='ownPatientsList'),
 ]
