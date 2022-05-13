@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 13, 2022 at 10:35 PM
+-- Generation Time: May 13, 2022 at 11:56 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.5
 
@@ -196,8 +196,8 @@ CREATE TABLE `auth_user` (
 --
 
 INSERT INTO `auth_user` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES
-(1, 'pbkdf2_sha256$320000$FRnkjUjgQV6ngrWnf6DDY3$jBrdd3+HZ/9MWbfGs1+MXq+1GNTDwUAou/RoOPdssk4=', '2022-05-13 19:54:59.759139', 1, 'Bega', '', '', 'bega2207.bb@gmail.com', 1, 1, '2022-05-01 10:16:10.655890'),
-(2, 'pbkdf2_sha256$320000$y1Hm25X6vBpc2Ve3paxhoX$cmWWNfart1eTdzOGae/DA0cx1z7ynGL2ogsZaLGGy68=', '2022-05-13 20:02:19.228677', 0, 'Muhammet', '', '', 'muhammet@gmail.com', 0, 1, '2022-05-10 15:23:01.000000'),
+(1, 'pbkdf2_sha256$320000$FRnkjUjgQV6ngrWnf6DDY3$jBrdd3+HZ/9MWbfGs1+MXq+1GNTDwUAou/RoOPdssk4=', '2022-05-13 21:37:06.686357', 1, 'Bega', '', '', 'bega2207.bb@gmail.com', 1, 1, '2022-05-01 10:16:10.655890'),
+(2, 'pbkdf2_sha256$320000$y1Hm25X6vBpc2Ve3paxhoX$cmWWNfart1eTdzOGae/DA0cx1z7ynGL2ogsZaLGGy68=', '2022-05-13 21:55:30.576763', 0, 'Muhammet', '', '', 'muhammet@gmail.com', 0, 1, '2022-05-10 15:23:01.000000'),
 (3, 'pbkdf2_sha256$320000$4VwNnT1vByb0XF2UgU0ROB$NoX3E5uDyjb3rAbVPw9M7VXo95GyokIDbC838VE7A/c=', '2022-05-13 19:04:03.037005', 0, 'Patient', '', '', '', 0, 1, '2022-05-12 08:58:37.000000'),
 (4, 'pbkdf2_sha256$320000$BUE0vPe5d0ixUd54RTkNGm$1iRZwFwXM+BMj1evNRuH5vw1NikIivp5SLBsbcAafyI=', '2022-05-13 18:47:49.559843', 0, 'Doctor', '', '', '', 0, 1, '2022-05-12 13:13:32.814658'),
 (11, 'pbkdf2_sha256$320000$SmhuEHR4bU0hI8ZO309Plp$ntSuhqKQZoRI/KYzv4YapznTrjW4J+1W8AxMkhhM/t0=', NULL, 0, 'Berdi', '', '', 'berdi@gmail.com', 0, 1, '2022-05-12 17:02:13.601679'),
@@ -277,7 +277,15 @@ INSERT INTO `django_admin_log` (`id`, `action_time`, `object_id`, `object_repr`,
 (26, '2022-05-13 16:08:57.295401', '2', 'Hospital object (2)', 1, '[{\"added\": {}}]', 9, 1),
 (27, '2022-05-13 16:13:24.380061', '2', 'Doctor object (2)', 1, '[{\"added\": {}}]', 7, 1),
 (28, '2022-05-13 16:14:24.861216', '4', 'Doctor', 2, '[{\"changed\": {\"fields\": [\"password\"]}}]', 4, 1),
-(29, '2022-05-13 19:56:14.290067', '5', 'PatientsApplications object (5)', 1, '[{\"added\": {}}]', 13, 1);
+(29, '2022-05-13 19:56:14.290067', '5', 'PatientsApplications object (5)', 1, '[{\"added\": {}}]', 13, 1),
+(30, '2022-05-13 21:38:17.464487', '1', 'SurveyType object (1)', 1, '[{\"added\": {}}]', 27, 1),
+(31, '2022-05-13 21:39:18.144322', '1', 'Survey object (1)', 1, '[{\"added\": {}}]', 26, 1),
+(32, '2022-05-13 21:46:06.183263', '2', 'Survey object (2)', 1, '[{\"added\": {}}]', 26, 1),
+(33, '2022-05-13 21:47:02.904199', '1', 'ExaminationType object (1)', 1, '[{\"added\": {}}]', 25, 1),
+(34, '2022-05-13 21:47:33.432624', '1', 'Examination object (1)', 1, '[{\"added\": {}}]', 24, 1),
+(35, '2022-05-13 21:47:49.336486', '1', 'DiagnosticMethod object (1)', 1, '[{\"added\": {}}]', 22, 1),
+(36, '2022-05-13 21:48:05.559789', '1', 'DiagnosticType object (1)', 1, '[{\"added\": {}}]', 23, 1),
+(37, '2022-05-13 21:48:30.016470', '1', 'Diagnostic object (1)', 1, '[{\"added\": {}}]', 21, 1);
 
 -- --------------------------------------------------------
 
@@ -409,7 +417,20 @@ INSERT INTO `django_migrations` (`id`, `app`, `name`, `applied`) VALUES
 (65, 'doctorsApp', '0026_diagnosticmethods_diagnostics_diagnostictypes_and_more', '2022-05-13 20:24:48.723148'),
 (66, 'doctorsApp', '0027_delete_diagnosticmethods_delete_diagnostics_and_more', '2022-05-13 20:25:30.924772'),
 (67, 'doctorsApp', '0028_diagnostic_diagnosticmethod_diagnostictype_and_more', '2022-05-13 20:26:12.393722'),
-(68, 'doctorsApp', '0029_delete_diagnostic_delete_diagnosticmethod_and_more', '2022-05-13 20:35:34.344147');
+(68, 'doctorsApp', '0029_delete_diagnostic_delete_diagnosticmethod_and_more', '2022-05-13 20:35:34.344147'),
+(69, 'doctorsApp', '0030_surveytype', '2022-05-13 20:39:07.368854'),
+(70, 'doctorsApp', '0031_delete_surveytype', '2022-05-13 20:49:50.463264'),
+(71, 'doctorsApp', '0032_surveytype_survey', '2022-05-13 20:49:50.585261'),
+(72, 'doctorsApp', '0033_examinationtype', '2022-05-13 20:50:13.197435'),
+(73, 'doctorsApp', '0034_examination', '2022-05-13 20:51:00.133973'),
+(74, 'doctorsApp', '0035_diagnosticmethod', '2022-05-13 20:51:33.352500'),
+(75, 'doctorsApp', '0036_diagnostic_diagnostictype', '2022-05-13 20:52:01.202018'),
+(76, 'doctorsApp', '0037_delete_diagnostic_delete_diagnostictype', '2022-05-13 20:52:15.467256'),
+(77, 'doctorsApp', '0038_diagnostictype', '2022-05-13 20:52:40.027738'),
+(78, 'doctorsApp', '0039_diagnostic', '2022-05-13 20:53:35.489343'),
+(79, 'doctorsApp', '0040_rename_diagnostic_type_id_diagnostic_diagnostic_type_and_more', '2022-05-13 21:28:24.687631'),
+(80, 'doctorsApp', '0041_diagnostic_created_at_examination_created_at_and_more', '2022-05-13 21:43:41.580490'),
+(81, 'doctorsApp', '0042_survey_survey_type', '2022-05-13 21:45:23.355684');
 
 -- --------------------------------------------------------
 
@@ -428,11 +449,11 @@ CREATE TABLE `django_session` (
 --
 
 INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('7m7ewkjvyyj339o1z7jkrjjokgj9sgha', '.eJxVjDsOAiEUAO9CbQh_iKW9ZyCPx0NWDSTLbrXx7oZkC21nJnOwCPtW4z5ojUtmV6bY5ZclwBe1KfIT2qNz7G1bl8Rnwk87-L1net_O9m9QYdS5RUMB0KBICCSyDdqFpKSxWhl0haTzKMhC0egCFFO8SspDRokCSmafL_qLONk:1npdFy:njoqt5nJ5FD_ySGRn-MTMkkRiM_V5tNLPtnADHa2kXs', '2022-05-27 21:55:30.585002'),
 ('c9bza8whzal00szvbj79i9h0qjh6vsey', '.eJxVjDsOAiEUAO9CbQh_iKW9ZyCPx0NWDSTLbrXx7oZkC21nJnOwCPtW4z5ojUtmV6bY5ZclwBe1KfIT2qNz7G1bl8Rnwk87-L1net_O9m9QYdS5RUMB0KBICCSyDdqFpKSxWhl0haTzKMhC0egCFFO8SspDRokCSmafL_qLONk:1np5yh:K_wHcLT2m2WkdiDB2Xt9sAQ09Ys2CqLeRqnVpWYFZzY', '2022-05-26 10:23:27.183407'),
 ('fib4g1ucw7946plp2rnab44x6y8vm0xt', '.eJxVjDsOAiEUAO9CbQh_iKW9ZyCPx0NWDSTLbrXx7oZkC21nJnOwCPtW4z5ojUtmV6bY5ZclwBe1KfIT2qNz7G1bl8Rnwk87-L1net_O9m9QYdS5RUMB0KBICCSyDdqFpKSxWhl0haTzKMhC0egCFFO8SspDRokCSmafL_qLONk:1np5mx:ME2sVOK2XHR9_N_tvP2ycS6T7OJq1PULOOgs0crZi1Y', '2022-05-26 10:11:19.290912'),
 ('ft5fcu8bjtjigldnr0k0bw2bk8na56a0', '.eJxVjE0OwiAYBe_C2pBSoAWX7j0D-f6QqqFJaVfGu2uTLnT7Zua9VIJtLWlrsqSJ1VkZdfrdEOghdQd8h3qbNc11XSbUu6IP2vR1ZnleDvfvoEAr3xqJMxkKILHLzpEV8pgtRZvFSsyCHEOP6I3zg5eRuMcAAfKIA0oH6v0BM_M56Q:1np4j3:LZKYcjX2g_dLK0Yy_mLaUKJ1BeZ6ikaAX0TlwDHUcxA', '2022-05-26 09:03:13.337765'),
 ('gnl28y07hi57iuti8fufs3yin5pqzdum', '.eJxVjDsOAiEUAO9CbQh_iKW9ZyCPx0NWDSTLbrXx7oZkC21nJnOwCPtW4z5ojUtmV6bY5ZclwBe1KfIT2qNz7G1bl8Rnwk87-L1net_O9m9QYdS5RUMB0KBICCSyDdqFpKSxWhl0haTzKMhC0egCFFO8SspDRokCSmafL_qLONk:1np5ti:u8DMZ8r4MDZDSRhaez1KtBaWNkifrMSFLPpXnRdVV9Q', '2022-05-26 10:18:18.275768'),
-('rfdm6gw5pkzb2hwwdup4bghk150inodx', '.eJxVjDsOAiEUAO9CbQh_iKW9ZyCPx0NWDSTLbrXx7oZkC21nJnOwCPtW4z5ojUtmV6bY5ZclwBe1KfIT2qNz7G1bl8Rnwk87-L1net_O9m9QYdS5RUMB0KBICCSyDdqFpKSxWhl0haTzKMhC0egCFFO8SspDRokCSmafL_qLONk:1npbUR:mdwapKd09HnE2JLSKqPLr27aJ9CS_BQSAfev3H1WYYw', '2022-05-27 20:02:19.233706'),
 ('vi6ebgy0nwt8obyedqeup7i8pp1xjims', '.eJxVjE0OwiAYBe_C2pBSoAWX7j0D-f6QqqFJaVfGu2uTLnT7Zua9VIJtLWlrsqSJ1VkZdfrdEOghdQd8h3qbNc11XSbUu6IP2vR1ZnleDvfvoEAr3xqJMxkKILHLzpEV8pgtRZvFSsyCHEOP6I3zg5eRuMcAAfKIA0oH6v0BM_M56Q:1np7FI:5KimvVySbx8ZrWVoI7HTeOL8tm6dnwKI8UC_C3eiQaA', '2022-05-26 11:44:40.096198');
 
 -- --------------------------------------------------------
@@ -457,6 +478,66 @@ INSERT INTO `doctorsapp_department` (`id`, `name`, `hospital_id`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `doctorsapp_diagnostic`
+--
+
+CREATE TABLE `doctorsapp_diagnostic` (
+  `id` bigint(20) NOT NULL,
+  `name` longtext NOT NULL,
+  `content` longtext NOT NULL,
+  `diagnostic_type_id` bigint(20) NOT NULL,
+  `doctor_id` bigint(20) NOT NULL,
+  `patient_id` bigint(20) NOT NULL,
+  `created_at` datetime(6) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `doctorsapp_diagnostic`
+--
+
+INSERT INTO `doctorsapp_diagnostic` (`id`, `name`, `content`, `diagnostic_type_id`, `doctor_id`, `patient_id`, `created_at`) VALUES
+(1, 'Gan tabşyrdy', 'Gan tabşyrdy norm eken', 1, 1, 3, '2022-05-13 21:48:29.000000');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `doctorsapp_diagnosticmethod`
+--
+
+CREATE TABLE `doctorsapp_diagnosticmethod` (
+  `id` bigint(20) NOT NULL,
+  `name` longtext NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `doctorsapp_diagnosticmethod`
+--
+
+INSERT INTO `doctorsapp_diagnosticmethod` (`id`, `name`) VALUES
+(1, 'Labaratoriýa');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `doctorsapp_diagnostictype`
+--
+
+CREATE TABLE `doctorsapp_diagnostictype` (
+  `id` bigint(20) NOT NULL,
+  `name` longtext NOT NULL,
+  `diagnostic_method_id` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `doctorsapp_diagnostictype`
+--
+
+INSERT INTO `doctorsapp_diagnostictype` (`id`, `name`, `diagnostic_method_id`) VALUES
+(1, 'Gan tabşyrmak', 1);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `doctorsapp_doctor`
 --
 
@@ -476,6 +557,47 @@ CREATE TABLE `doctorsapp_doctor` (
 INSERT INTO `doctorsapp_doctor` (`id`, `position_at_work`, `department_id`, `hospital_id`, `speciality_id`, `user_id`) VALUES
 (1, 'Bölüm hünärmeni', 1, 1, 1, 2),
 (2, 'Bölüm hünärmeni', 1, 2, 1, 4);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `doctorsapp_examination`
+--
+
+CREATE TABLE `doctorsapp_examination` (
+  `id` bigint(20) NOT NULL,
+  `name` longtext NOT NULL,
+  `content` longtext NOT NULL,
+  `Examination_type_id` bigint(20) NOT NULL,
+  `doctor_id` bigint(20) NOT NULL,
+  `patient_id` bigint(20) NOT NULL,
+  `created_at` datetime(6) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `doctorsapp_examination`
+--
+
+INSERT INTO `doctorsapp_examination` (`id`, `name`, `content`, `Examination_type_id`, `doctor_id`, `patient_id`, `created_at`) VALUES
+(1, 'Gözden geçirdim', 'Gözden geçirdim aýagy norm ýagdaýda', 1, 1, 3, '2022-05-13 21:47:32.000000');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `doctorsapp_examinationtype`
+--
+
+CREATE TABLE `doctorsapp_examinationtype` (
+  `id` bigint(20) NOT NULL,
+  `name` longtext NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `doctorsapp_examinationtype`
+--
+
+INSERT INTO `doctorsapp_examinationtype` (`id`, `name`) VALUES
+(1, 'Gözden geçirmek');
 
 -- --------------------------------------------------------
 
@@ -515,6 +637,47 @@ CREATE TABLE `doctorsapp_speciality` (
 
 INSERT INTO `doctorsapp_speciality` (`id`, `name`) VALUES
 (1, 'Endokrinolog');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `doctorsapp_survey`
+--
+
+CREATE TABLE `doctorsapp_survey` (
+  `id` bigint(20) NOT NULL,
+  `name` longtext NOT NULL,
+  `content` longtext NOT NULL,
+  `doctor_id` bigint(20) NOT NULL,
+  `patient_id` bigint(20) NOT NULL,
+  `created_at` datetime(6) DEFAULT NULL,
+  `survey_type_id` bigint(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `doctorsapp_survey`
+--
+
+INSERT INTO `doctorsapp_survey` (`id`, `name`, `content`, `doctor_id`, `patient_id`, `created_at`, `survey_type_id`) VALUES
+(2, 'Ayagy agyryar', 'Ayagy agyryar norm yoreyar 3 gun maz calsa gutular nesip bolsa', 1, 3, '2022-05-13 21:46:05.000000', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `doctorsapp_surveytype`
+--
+
+CREATE TABLE `doctorsapp_surveytype` (
+  `id` bigint(20) NOT NULL,
+  `name` longtext NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `doctorsapp_surveytype`
+--
+
+INSERT INTO `doctorsapp_surveytype` (`id`, `name`) VALUES
+(1, 'Patient complaints');
 
 -- --------------------------------------------------------
 
@@ -697,6 +860,28 @@ ALTER TABLE `doctorsapp_department`
   ADD KEY `doctorsApp_departmen_hospital_id_c01d4fa0_fk_doctorsAp` (`hospital_id`);
 
 --
+-- Indexes for table `doctorsapp_diagnostic`
+--
+ALTER TABLE `doctorsapp_diagnostic`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `doctorsApp_diagnosti_diagnostic_type_id_05c821c5_fk_doctorsAp` (`diagnostic_type_id`),
+  ADD KEY `doctorsApp_diagnostic_doctor_id_b3c1464d_fk_doctorsApp_doctor_id` (`doctor_id`),
+  ADD KEY `doctorsApp_diagnosti_patient_id_951eddce_fk_patientsA` (`patient_id`);
+
+--
+-- Indexes for table `doctorsapp_diagnosticmethod`
+--
+ALTER TABLE `doctorsapp_diagnosticmethod`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `doctorsapp_diagnostictype`
+--
+ALTER TABLE `doctorsapp_diagnostictype`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `doctorsApp_diagnosti_diagnostic_method_id_f7c9c9da_fk_doctorsAp` (`diagnostic_method_id`);
+
+--
 -- Indexes for table `doctorsapp_doctor`
 --
 ALTER TABLE `doctorsapp_doctor`
@@ -705,6 +890,21 @@ ALTER TABLE `doctorsapp_doctor`
   ADD KEY `doctorsApp_doctor_department_id_7b0304fa_fk_doctorsAp` (`department_id`),
   ADD KEY `doctorsApp_doctor_hospital_id_36343cac_fk_doctorsApp_hospital_id` (`hospital_id`),
   ADD KEY `doctorsApp_doctor_speciality_id_12a91ff6_fk_doctorsAp` (`speciality_id`);
+
+--
+-- Indexes for table `doctorsapp_examination`
+--
+ALTER TABLE `doctorsapp_examination`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `doctorsApp_examinati_Examination_type_id_4dbc06da_fk_doctorsAp` (`Examination_type_id`),
+  ADD KEY `doctorsApp_examinati_doctor_id_6c9bdb19_fk_doctorsAp` (`doctor_id`),
+  ADD KEY `doctorsApp_examinati_patient_id_01be6289_fk_patientsA` (`patient_id`);
+
+--
+-- Indexes for table `doctorsapp_examinationtype`
+--
+ALTER TABLE `doctorsapp_examinationtype`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `doctorsapp_hospital`
@@ -716,6 +916,21 @@ ALTER TABLE `doctorsapp_hospital`
 -- Indexes for table `doctorsapp_speciality`
 --
 ALTER TABLE `doctorsapp_speciality`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `doctorsapp_survey`
+--
+ALTER TABLE `doctorsapp_survey`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `doctorsApp_survey_doctor_id_da8d84fe_fk_doctorsApp_doctor_id` (`doctor_id`),
+  ADD KEY `doctorsApp_survey_patient_id_95333124_fk_patientsApp_patient_id` (`patient_id`),
+  ADD KEY `doctorsApp_survey_survey_type_id_2cdd329d_fk_doctorsAp` (`survey_type_id`);
+
+--
+-- Indexes for table `doctorsapp_surveytype`
+--
+ALTER TABLE `doctorsapp_surveytype`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -799,7 +1014,7 @@ ALTER TABLE `auth_user_user_permissions`
 -- AUTO_INCREMENT for table `django_admin_log`
 --
 ALTER TABLE `django_admin_log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `django_content_type`
@@ -811,7 +1026,7 @@ ALTER TABLE `django_content_type`
 -- AUTO_INCREMENT for table `django_migrations`
 --
 ALTER TABLE `django_migrations`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 
 --
 -- AUTO_INCREMENT for table `doctorsapp_department`
@@ -820,10 +1035,40 @@ ALTER TABLE `doctorsapp_department`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `doctorsapp_diagnostic`
+--
+ALTER TABLE `doctorsapp_diagnostic`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `doctorsapp_diagnosticmethod`
+--
+ALTER TABLE `doctorsapp_diagnosticmethod`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `doctorsapp_diagnostictype`
+--
+ALTER TABLE `doctorsapp_diagnostictype`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `doctorsapp_doctor`
 --
 ALTER TABLE `doctorsapp_doctor`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `doctorsapp_examination`
+--
+ALTER TABLE `doctorsapp_examination`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `doctorsapp_examinationtype`
+--
+ALTER TABLE `doctorsapp_examinationtype`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `doctorsapp_hospital`
@@ -835,6 +1080,18 @@ ALTER TABLE `doctorsapp_hospital`
 -- AUTO_INCREMENT for table `doctorsapp_speciality`
 --
 ALTER TABLE `doctorsapp_speciality`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `doctorsapp_survey`
+--
+ALTER TABLE `doctorsapp_survey`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `doctorsapp_surveytype`
+--
+ALTER TABLE `doctorsapp_surveytype`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
@@ -912,6 +1169,20 @@ ALTER TABLE `doctorsapp_department`
   ADD CONSTRAINT `doctorsApp_departmen_hospital_id_c01d4fa0_fk_doctorsAp` FOREIGN KEY (`hospital_id`) REFERENCES `doctorsapp_hospital` (`id`);
 
 --
+-- Constraints for table `doctorsapp_diagnostic`
+--
+ALTER TABLE `doctorsapp_diagnostic`
+  ADD CONSTRAINT `doctorsApp_diagnosti_diagnostic_type_id_05c821c5_fk_doctorsAp` FOREIGN KEY (`diagnostic_type_id`) REFERENCES `doctorsapp_diagnostictype` (`id`),
+  ADD CONSTRAINT `doctorsApp_diagnosti_patient_id_951eddce_fk_patientsA` FOREIGN KEY (`patient_id`) REFERENCES `patientsapp_patient` (`id`),
+  ADD CONSTRAINT `doctorsApp_diagnostic_doctor_id_b3c1464d_fk_doctorsApp_doctor_id` FOREIGN KEY (`doctor_id`) REFERENCES `doctorsapp_doctor` (`id`);
+
+--
+-- Constraints for table `doctorsapp_diagnostictype`
+--
+ALTER TABLE `doctorsapp_diagnostictype`
+  ADD CONSTRAINT `doctorsApp_diagnosti_diagnostic_method_id_f7c9c9da_fk_doctorsAp` FOREIGN KEY (`diagnostic_method_id`) REFERENCES `doctorsapp_diagnosticmethod` (`id`);
+
+--
 -- Constraints for table `doctorsapp_doctor`
 --
 ALTER TABLE `doctorsapp_doctor`
@@ -919,6 +1190,22 @@ ALTER TABLE `doctorsapp_doctor`
   ADD CONSTRAINT `doctorsApp_doctor_hospital_id_36343cac_fk_doctorsApp_hospital_id` FOREIGN KEY (`hospital_id`) REFERENCES `doctorsapp_hospital` (`id`),
   ADD CONSTRAINT `doctorsApp_doctor_speciality_id_12a91ff6_fk_doctorsAp` FOREIGN KEY (`speciality_id`) REFERENCES `doctorsapp_speciality` (`id`),
   ADD CONSTRAINT `doctorsApp_doctor_user_id_56545f91_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`);
+
+--
+-- Constraints for table `doctorsapp_examination`
+--
+ALTER TABLE `doctorsapp_examination`
+  ADD CONSTRAINT `doctorsApp_examinati_Examination_type_id_4dbc06da_fk_doctorsAp` FOREIGN KEY (`Examination_type_id`) REFERENCES `doctorsapp_examinationtype` (`id`),
+  ADD CONSTRAINT `doctorsApp_examinati_doctor_id_6c9bdb19_fk_doctorsAp` FOREIGN KEY (`doctor_id`) REFERENCES `doctorsapp_doctor` (`id`),
+  ADD CONSTRAINT `doctorsApp_examinati_patient_id_01be6289_fk_patientsA` FOREIGN KEY (`patient_id`) REFERENCES `patientsapp_patient` (`id`);
+
+--
+-- Constraints for table `doctorsapp_survey`
+--
+ALTER TABLE `doctorsapp_survey`
+  ADD CONSTRAINT `doctorsApp_survey_doctor_id_da8d84fe_fk_doctorsApp_doctor_id` FOREIGN KEY (`doctor_id`) REFERENCES `doctorsapp_doctor` (`id`),
+  ADD CONSTRAINT `doctorsApp_survey_patient_id_95333124_fk_patientsApp_patient_id` FOREIGN KEY (`patient_id`) REFERENCES `patientsapp_patient` (`id`),
+  ADD CONSTRAINT `doctorsApp_survey_survey_type_id_2cdd329d_fk_doctorsAp` FOREIGN KEY (`survey_type_id`) REFERENCES `doctorsapp_surveytype` (`id`);
 
 --
 -- Constraints for table `patientsapp_patient`
