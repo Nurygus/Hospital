@@ -7,4 +7,10 @@ $(document).ready(function(){
     $('.close-icon').click(function(){
         $('.send-block').css('display', 'none');
     })
+    
+    var sidebarHeight = parseFloat($('#sidebar').css('height'));
+    var servicesHeight = parseFloat($('#services').css('height'));
+    if (servicesHeight > sidebarHeight){
+        $('#sidebar').css('height', servicesHeight + 'px');
+    }
 });

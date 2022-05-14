@@ -25,6 +25,9 @@
 #sidebar_menu a:hover{
     background-color: rgb(251, 251, 251);
 }
+#services{
+    padding-bottom: 30px;
+}
 .block-group-header:first-child{
     margin-top: 20px;
 }

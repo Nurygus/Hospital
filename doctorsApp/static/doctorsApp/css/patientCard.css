@@ -7,3 +7,41 @@
     font-size: 19px;
     font-weight: bold;
 }
+.type-card-button{
+    display: block;
+    width: 160px;
+    height: 35px;
+    line-height: 35px;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    text-align: center;
+    transition: opacity 0.2s;
+    margin-top: 20px;
+}
+.type-card-button:hover{
+    opacity: 0.7;
+    color: var(--white-color);
+}
+.new-note-button{
+    display: flex;
+    align-items: center;
+    width: 90%;
+    height: 60px;
+    text-align: center;
+    border: 1px solid rgb(210, 210, 210);
+    margin-top: 15px;
+    border-radius: 5px;
+}
+.icon-container{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    background-color: var(--primary-color);
+    border-radius: 5px 0 0 5px;
+}
+.icon-container img{
+    height: 32px;
+}
+.services h6{
+    font-size: 23px;
+}
