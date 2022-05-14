@@ -4,7 +4,7 @@
 
 .small-icon-green {
 	width: 22px;
-	filter: var(--priimary-filter);
+	filter: var(--primary-filter);
 }
 
 .textarea-non-resizeable {
