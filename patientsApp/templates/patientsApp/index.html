@@ -11,7 +11,7 @@
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <title>Patient</title>
+    <title>Ulanyjy</title>
 
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="{% static 'patientsApp/assets/css/fontawesome.css' %}">
@@ -25,12 +25,12 @@
 <body>
   <section class="row">
     <div class="col-2" id="sidebar">
-      <h6>Patient paneli</h6>
+      <h6>Ulanyjynyň paneli</h6>
       <p>{{ request.user.username }}</p>
 
       <ul id="sidebar_menu">
         <li><a href="{% url 'patientsApp:index' %}">Baş sahypa</a></li>
-        <li><a href="#">Patient profili</a></li>
+        <li><a href="#">Ulanyjynyň profili</a></li>
       </ul>
     </div>
     <div class="col-10 services" id="services">
@@ -78,6 +78,9 @@
       };
       document.getElementById("buttonSendRequest2").onclick = function () {
         location.href = "{% url 'patientsApp:created_applications' %}";
+      };
+      document.getElementById("buttonSendRequest3").onclick = function () {
+        location.href = "{% url 'patientsApp:card' %}";
       };
     </script>
   </body>
