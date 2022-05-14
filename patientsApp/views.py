@@ -48,7 +48,7 @@ class CreatedApplicationsView(TemplateView):
         context = super(CreatedApplicationsView, self).get_context_data(**kwargs)
         context['latest_applications_list'] = PatientsApplications.objects.filter(
             patient_id=self.request.user.patient
-        ).order_by('-created_at')[:5]
+        ).order_by('-created_at')
         return context
 
 @method_decorator(login_required, name='dispatch')
@@ -66,7 +66,7 @@ class CardView(TemplateView):
             chain(surveys, diagnostics, examinations),
             key=lambda car: car.created_at, reverse=False)
 
-        context['patient'] = Patient.objects.get(id = self.request.user.patient.id),
+        context['patient'] = Patient.objects.get(id = self.request.user.patient.id)
         context['patientCard'] = patientCard
         
         return context
