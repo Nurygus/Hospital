@@ -11,7 +11,7 @@
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <title>Mexant - Financial HTML5 Template</title>
+    <title>Maşgala lukmana gelen hatlar</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{% static 'patientsApp/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
@@ -80,7 +80,7 @@
                             <td>{{ message.title }}</td>
                             <td>{{ message.message }}</td>
                             <td>{{ message.created_at }}</td>
-                            <td>{{ message.user.username }}</td>
+                            <td>{{ message.patient.user.username }}</td>
                             <td class="reply-icon-container"><a id="{{ message.id }}" class="message-forward" href="#"><img class="reply-icon primary-filter" src="{% static 'Hospital/bootstrap-icons/reply-fill.svg' %}" alt=""></a></td>
                         </tr>
                     {% endfor %}
