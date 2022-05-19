@@ -14,7 +14,7 @@ class ApplicationForm(forms.Form):
             message = self.cleaned_data['message'], 
             is_opened = True,
             created_at = timezone.now(),
-            family_doctor = getattr(request.user, 'doctor', None),
+            family_doctor_id = request.user.patient.doctor_id,
             patient = request.user.patient,     
         )
         application.save()

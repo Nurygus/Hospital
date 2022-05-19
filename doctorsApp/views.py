@@ -40,7 +40,7 @@ def is_doctor(request):
 
 @login_required
 def globalInbox(request):
-    messages = PatientsApplications.objects.raw('SELECT * FROM patientsapp_patientsapplications WHERE hospital_id is null')
+    messages = PatientsApplications.objects.raw('SELECT * FROM patientsapp_patientsapplications WHERE hospital_id is null AND family_doctor_id = ' + str(request.user.doctor.id))
     hospitals = Hospital.objects.all()
 
     context = {
@@ -118,6 +118,7 @@ def patientCard(request, patientId):
     }
     return render(request, "doctorsApp/patientCard.html", context)
 
+@login_required
 def newDiagnostic(request, patientId):
     diagnosticTypes = DiagnosticType.objects.filter()
 
@@ -126,6 +127,7 @@ def newDiagnostic(request, patientId):
     }
     return render(request, "doctorsApp/newDiagnostic.html", context)
 
+@login_required
 def newDiagnosticPost(request, patientId):
     diagnostic = Diagnostic(name = request.POST.get('name'),
                     content = request.POST.get('content'),
@@ -136,6 +138,7 @@ def newDiagnosticPost(request, patientId):
     diagnostic.save()
     return HttpResponseRedirect(reverse("doctorsApp:patientCard", args=[patientId]))
 
+@login_required
 def newExamination(request, patientId):
     examinationTypes = ExaminationType.objects.filter()
 
@@ -144,6 +147,7 @@ def newExamination(request, patientId):
     }
     return render(request, "doctorsApp/newExamination.html", context)
 
+@login_required
 def newExaminationPost(request, patientId):
     examination = Examination(name = request.POST.get('name'),
                     content = request.POST.get('content'),
@@ -154,6 +158,7 @@ def newExaminationPost(request, patientId):
     examination.save()
     return HttpResponseRedirect(reverse("doctorsApp:patientCard", args=[patientId]))
 
+@login_required
 def newSurvey(request, patientId):
     surveyTypes = SurveyType.objects.filter()
 
@@ -162,6 +167,7 @@ def newSurvey(request, patientId):
     }
     return render(request, "doctorsApp/newSurvey.html", context)
 
+@login_required
 def newSurveyPost(request, patientId):
     survey = Survey(name = request.POST.get('name'),
                     content = request.POST.get('content'),
