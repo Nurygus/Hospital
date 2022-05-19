@@ -46,9 +46,11 @@
     <div class="col-10 services" id="services">
       <div class="container">
         <div class="row">
+
           <div class="col-12 block-group-header">
             Hatlar
           </div>
+          
           <div class="col-lg-6">
             <button type="button" id="buttonSendRequest1" class="service-item">
               <img class="primary-filter" src="{% static 'Hospital/bootstrap-icons/globe.svg' %}">
@@ -56,13 +58,17 @@
               <p>Özüni oňaýsyz duýýan ulanyjylaryň ugradan hatlary.</p>
             </button>
           </div>
-          <div class="col-lg-6">
-            <button type="button" id="buttonSendRequest2" class="service-item">
-              <img class="primary-filter" src="{% static 'Hospital/bootstrap-icons/envelope.svg' %}">
-              <h4>Hassahana gelen hatlar</h4>
-              <p>Hassahana gönükdirilen näsaglaryň hatlary.</p>
-            </button>
-          </div>
+
+          {% if user.doctor.is_consulting %}
+            <div class="col-lg-6">
+              <button type="button" id="buttonSendRequest2" class="service-item">
+                <img class="primary-filter" src="{% static 'Hospital/bootstrap-icons/envelope.svg' %}">
+                <h4>Hassahana gelen hatlar</h4>
+                <p>Hassahana gönükdirilen näsaglaryň hatlary.</p>
+              </button>
+            </div>
+          {% endif %}
+          
           <div class="col-lg-6">
             <button type="button" id="buttonSendRequest3" class="service-item">
               <img class="primary-filter" src="{% static 'Hospital/bootstrap-icons/envelope-paper.svg' %}">

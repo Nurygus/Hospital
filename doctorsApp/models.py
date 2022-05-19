@@ -21,6 +21,7 @@ class Doctor(models.Model):
     hospital = models.ForeignKey(Hospital, on_delete=models.CASCADE)
     department = models.ForeignKey(Department, on_delete=models.CASCADE)
     position_at_work = models.TextField()
+    is_consulting = models.IntegerField(blank = True, null = True)
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
 class SurveyType(models.Model):
