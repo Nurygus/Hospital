@@ -126,13 +126,20 @@ def patientCard(request, patientId):
         chain(surveys, diagnostics, examinations, provisionalDiagnosis, diagnosis),
         key=lambda car: car.created_at, reverse=False)
     patientCardCount = len(patientCard)
+    
+    TypesOfNotes = []
+    for note in patientCard:
+        noteParts = str(type(note)).split('.')
+        TypesOfNotes.append(noteParts[2][:-2].lower())
 
     context = {
         'patient': Patient.objects.get(id = patientId),
         'patientCard': patientCard,
         'patientCardCount': patientCardCount,
         'provisionalDiagnosis': provisionalDiagnosis,
-        'diagnosis': diagnosis
+        'diagnosis': diagnosis,
+        'TypesOfNotes': TypesOfNotes
+
     }
     return render(request, "doctorsApp/patientCard.html", context)
 
@@ -221,5 +228,5 @@ def newDiagnosisPost(request, patientId):
                     doctor_id = request.user.doctor.id, 
                     patient_id = patientId,
                     created_at = timezone.now())
-    Diagnosis.save()
+    diagnosis.save()
     return HttpResponseRedirect(reverse("doctorsApp:patientCard", args=[patientId]))

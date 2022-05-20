@@ -58,12 +58,38 @@
               <div class="col-12 block-group-header">
                 {{ patient.user.username }} näsagyň karty
               </div>
+              {% load index %}
               {% for note in patientCard %}
                   <div class="col-12 note-block">
-                      <a href="">{{ note.name }}</a>
-                      <p>{{ note.content }}</p>
-                      <p>{{ note.created_at }}</p>
-                      <p>Ýazgyny ýerine ýetiren {{ note.doctor.user.username }}</p>
+                    <a class="block-preview">
+                        {% if TypesOfNotes|index:forloop.counter0 == "survey" %}
+                          <div class="block-img-container {{ TypesOfNotes|index:forloop.counter0 }}-icon">
+                            <img class="block-img white-filter" src="{% static 'Hospital/bootstrap-icons/chat-right-text.svg' %}">
+                          </div>
+                        {% elif TypesOfNotes|index:forloop.counter0 == "examination" %}
+                          <div class="block-img-container {{ TypesOfNotes|index:forloop.counter0 }}-icon">
+                            <img class="block-img white-filter" src="{% static 'Hospital/bootstrap-icons/search.svg' %}">
+                          </div>
+                        {% elif TypesOfNotes|index:forloop.counter0 == "diagnostic" %}
+                          <div class="block-img-container {{ TypesOfNotes|index:forloop.counter0 }}-icon">
+                            <img class="block-img white-filter" src="{% static 'Hospital/bootstrap-icons/file-text.svg' %}">
+                          </div>
+                        {% elif TypesOfNotes|index:forloop.counter0 == "provisionaldiagnosis" %}
+                          <div class="block-img-container {{ TypesOfNotes|index:forloop.counter0 }}-icon">
+                            <img class="block-img white-filter" src="{% static 'Hospital/bootstrap-icons/clipboard.svg' %}">
+                          </div>
+                        {% elif TypesOfNotes|index:forloop.counter0 == "diagnosis" %}
+                          <div class="block-img-container {{ TypesOfNotes|index:forloop.counter0 }}-icon">
+                            <img class="block-img white-filter" src="{% static 'Hospital/bootstrap-icons/clipboard-check.svg' %}">
+                          </div>
+                        {% endif %}
+                      <div>{{ note.name }}</div>
+                    </a>
+                    <div class="block-data">
+                      <p class="block-content">{{ note.content }}</p>
+                      <p class="block-created-at">{{ note.created_at }}</p>
+                      <p class="block-made-by">Ýazgyny ýerine ýetiren {{ note.doctor.user.username }}</p>
+                    </div>
                   </div>
               {% endfor %}
           </div>
@@ -81,9 +107,9 @@
       {% endif %}
 
       <div id="structures-sidebar" class="col-2 services text-center">
-        <h6 class="primary-color mt-4">Ýazgy goş</h6>
+        <h6 class="primary-color mt-4 mb-4">Ýazgy goş</h6>
         <a class="new-note-button row" href="newSurvey">
-          <div class="col-4 icon-container">
+          <div class="col-4 icon-container survey-icon">
             <img class="white-filter" src="{% static 'Hospital/bootstrap-icons/chat-right-text.svg' %}">
           </div>
           <div class="col-7">
@@ -91,7 +117,7 @@
           </div>
         </a>
         <a class="new-note-button row" href="newExamination">
-          <div class="col-4 icon-container">
+          <div class="col-4 icon-container examination-icon">
             <img class="white-filter" src="{% static 'Hospital/bootstrap-icons/search.svg' %}">
           </div>
           <div class="col-7">
@@ -99,7 +125,7 @@
           </div>
         </a>
         <a class="new-note-button row" href="newDiagnostic">
-          <div class="col-4 icon-container">
+          <div class="col-4 icon-container diagnostic-icon">
             <img class="white-filter" src="{% static 'Hospital/bootstrap-icons/file-text.svg' %}">
           </div>
           <div class="col-7">
@@ -107,7 +133,7 @@
           </div>
         </a>
         <a class="new-note-button row" href="newProvisionalDiagnosis">
-          <div class="col-4 icon-container">
+          <div class="col-4 icon-container provisionaldiagnosis-icon">
             <img class="white-filter" src="{% static 'Hospital/bootstrap-icons/clipboard.svg' %}">
           </div>
           <div class="col-7">
@@ -115,7 +141,7 @@
           </div>
         </a>
         <a class="new-note-button row" href="newDiagnosis">
-          <div class="col-4 icon-container">
+          <div class="col-4 icon-container diagnosis-icon">
             <img class="white-filter" src="{% static 'Hospital/bootstrap-icons/clipboard-check.svg' %}">
           </div>
           <div class="col-7">
@@ -187,5 +213,6 @@
       };
     </script>
     <script src="{% static 'doctorsApp/js/inbox.js' %}"></script>
+    <script src="{% static 'doctorsApp/js/patientCard.js' %}"></script>
   </body>
 </html>

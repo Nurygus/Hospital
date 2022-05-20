@@ -32,7 +32,7 @@
   
     --white-filter:                 brightness(0) saturate(100%) invert(98%) sepia(2%) saturate(116%) hue-rotate(123deg) brightness(118%) contrast(100%);
     --primary-filter:               brightness(0) saturate(100%) invert(56%) sepia(61%) saturate(413%) hue-rotate(106deg) brightness(92%) contrast(91%);
-    --dark-filter:                  filter: brightness(0) saturate(100%);
+    --dark-filter:                  brightness(0) saturate(100%);
   }
   
   body {
