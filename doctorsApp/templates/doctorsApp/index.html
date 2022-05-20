@@ -35,12 +35,18 @@
 
   <section class="row">
     <div class="col-2" id="sidebar">
-      <h6>Lukman paneli</h6>
-      <p>{{ request.user.username }}</p>
+      <h6>Ulanyjynyň paneli</h6>
+      <p id="sidebar-username">{{ request.user.username }}</p>
 
-      <ul id="sidebar_menu">
-        <li><a href="{% url 'doctorsApp:index' %}">Baş sahypa</a></li>
-        <li><a href="#">Lukman profili</a></li>
+      <ul id="sidebar-menu">
+        <li>
+          <img src="{% static 'Hospital/bootstrap-icons/house.svg' %}" alt="">
+          <a href="{% url 'doctorsApp:index' %}">Baş sahypa</a>
+        </li>
+        <li>
+          <img src="{% static 'Hospital/bootstrap-icons/info-circle.svg' %}" alt="">
+          <a href="#">Ulanyjynyň profili</a>
+        </li>
       </ul>
     </div>
     <div class="col-10 services" id="services">
@@ -151,9 +157,6 @@
       document.getElementById("buttonSendRequest1").onclick = function () {
         location.href = "{% url 'doctorsApp:globalInbox' %}";
       };
-      document.getElementById("buttonSendRequest2").onclick = function () {
-        location.href = "{% url 'doctorsApp:localInbox' %}";
-      };
       document.getElementById("buttonSendRequest3").onclick = function () {
         location.href = "{% url 'doctorsApp:doctorInbox' %}";
       };
@@ -161,5 +164,14 @@
         location.href = "{% url 'doctorsApp:ownPatientsList' %}";
       };
     </script>
+    
+    <!-- BUtton handler for hospital messages button -->
+    {% if user.doctor.is_consulting %}
+      <script>
+        document.getElementById("buttonSendRequest2").onclick = function () {
+          location.href = "{% url 'doctorsApp:localInbox' %}";
+        };
+      </script>
+    {% endif %}
   </body>
 </html>

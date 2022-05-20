@@ -11,3 +11,12 @@
 	width: 100%;
 	resize: none;
 }
+.form-input{
+    width: 100%;
+    height: 60px;
+}
+.submit-input{
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    border: none;
+}

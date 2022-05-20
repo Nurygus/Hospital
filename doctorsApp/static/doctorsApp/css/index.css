@@ -1,29 +1,36 @@
 #sidebar{
     padding: 20px 0 0 0;
-    text-align: center;
-    background-color: rgb(230, 230, 230);
+    background-color: var(--bg-color);
     height: 100vh;
 }
 #sidebar h6{
-    color: var(--primary-color) !important;
+    color: var(--white-color) !important;
     margin-bottom: 10px;
+    text-align: center;
 }
-#sidebar_menu{
+#sidebar p{
+    text-align: center;
+}
+#sidebar-username{
+    color: white;
+}
+#sidebar-menu{
     margin-top: 100px;
+    padding-left: 35px;
 }
-#sidebar_menu li{
-    margin-top: 1px;
+#sidebar-menu li{
+    margin-bottom: 20px;
 }
-#sidebar_menu a{
-    display: inline-block;
-    width: 100%;
-    color: var(--title-color);
-    background-color: rgb(239, 239, 239);
+#sidebar-menu img{
+    width: 20px;
+    height: 20px;
+    margin-top: -5px;
+    margin-right: 9px;
+    filter: var(--white-filter);
+}
+#sidebar-menu a{
+    color: var(--white-color);
     height: 40px;
-    line-height: 40px;
-}
-#sidebar_menu a:hover{
-    background-color: rgb(251, 251, 251);
 }
 #services{
     padding-bottom: 30px;

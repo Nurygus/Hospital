@@ -49,6 +49,7 @@ class CreatedApplicationsView(TemplateView):
         context['latest_applications_list'] = PatientsApplications.objects.filter(
             patient_id=self.request.user.patient
         ).order_by('-created_at')
+        context['messagesCount'] = len(context['latest_applications_list'])
         return context
 
 @method_decorator(login_required, name='dispatch')

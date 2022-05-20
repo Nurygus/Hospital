@@ -41,10 +41,12 @@ def is_doctor(request):
 @login_required
 def globalInbox(request):
     messages = PatientsApplications.objects.raw('SELECT * FROM patientsapp_patientsapplications WHERE hospital_id is null AND family_doctor_id = ' + str(request.user.doctor.id))
+    messagesCount = len(messages)
     hospitals = Hospital.objects.all()
 
     context = {
         'messages': messages,
+        'messagesCount': messagesCount,
         'hospitals': hospitals
     }
     return render(request, "doctorsApp/globalInbox.html", context)
@@ -63,10 +65,12 @@ def updateHospitalOfMessage(request):
 @login_required
 def localInbox(request):
     messages = PatientsApplications.objects.raw('SELECT * FROM patientsapp_patientsapplications WHERE hospital_id = ' + str(request.user.doctor.hospital_id) + ' AND doctor_id is null')
+    messagesCount = len(messages)
     doctors = Doctor.objects.raw('SELECT * FROM doctorsapp_doctor WHERE hospital_id = ' + str(request.user.doctor.hospital_id))
 
     context = {
         'messages': messages,
+        'messagesCount': messagesCount,
         'doctors': doctors
     }
     return render(request, "doctorsApp/localInbox.html", context) 
@@ -85,19 +89,23 @@ def updateDoctorOfMessage(request):
 @login_required
 def doctorInbox(request):
     messages = PatientsApplications.objects.raw('SELECT * FROM patientsapp_patientsapplications WHERE doctor_id = ' + str(request.user.doctor.id))
+    messagesCount = len(messages)
 
     context = {
-        'messages': messages
+        'messages': messages,
+        'messagesCount': messagesCount,
     }
     return render(request, "doctorsApp/doctorInbox.html", context)
 
 @login_required
 def ownPatientsList(request):
     patients = Patient.objects.raw('SELECT * FROM patientsapp_patient WHERE doctor_id = ' + str(request.user.doctor.id) )
+    patientsCount = len(patients)
     messages = PatientsApplications.objects.raw('SELECT * FROM patientsapp_patientsapplications WHERE doctor_id = ' + str(request.user.doctor.id) )
 
     context = {
         'patients': patients,
+        'patientsCount': patientsCount,
         'messages': messages
     }
     return render(request, "doctorsApp/ownPatientsList.html", context)

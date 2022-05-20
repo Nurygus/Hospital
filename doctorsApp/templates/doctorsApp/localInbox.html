@@ -50,17 +50,24 @@
 
   <section class="row">
     <div class="col-2" id="sidebar">
-      <h6>Lukman paneli</h6>
-      <p>{{ request.user.username }}</p>
+      <h6>Ulanyjynyň paneli</h6>
+      <p id="sidebar-username">{{ request.user.username }}</p>
 
-      <ul id="sidebar_menu">
-        <li><a href="{% url 'doctorsApp:index' %}">Baş sahypa</a></li>
-        <li><a href="#">Lukman profili</a></li>
+      <ul id="sidebar-menu">
+        <li>
+          <img src="{% static 'Hospital/bootstrap-icons/house.svg' %}" alt="">
+          <a href="{% url 'doctorsApp:index' %}">Baş sahypa</a>
+        </li>
+        <li>
+          <img src="{% static 'Hospital/bootstrap-icons/info-circle.svg' %}" alt="">
+          <a href="#">Ulanyjynyň profili</a>
+        </li>
       </ul>
     </div>
     
     <!-- Content -->
-    <div class="col-10 services" id="services">
+    {% if messagesCount >= 1 %}
+      <div class="col-10 services" id="services">
         <div class="container">
             <table class="table table-striped mt-3">
                 <thead>
@@ -70,6 +77,7 @@
                         <th>Hat</th>
                         <th>Ugradylan senesi</th>
                         <th>Ulanyjy</th>
+                        <th>Telefony</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -80,14 +88,23 @@
                             <td>{{ message.title }}</td>
                             <td>{{ message.message }}</td>
                             <td>{{ message.created_at }}</td>
-                            <td>{{ message.user.username }}</td>
+                            <td>{{ message.patient.user.username }}</td>
+                            <td>{{ message.patient.phone }}</td>
                             <td class="reply-icon-container"><a id="{{ message.id }}" class="message-forward" href="#"><img class="reply-icon primary-filter" src="{% static 'Hospital/bootstrap-icons/reply-fill.svg' %}" alt=""></a></td>
                         </tr>
                     {% endfor %}
                 </tbody>
             </table>
         </div>
-    </div>
+      </div>
+    {% else %}
+      <div class="col-10 middled-message-block">
+        <div>
+          <p>Size entek hat gelmedi!</p>
+          <a class="prev-page-button" href="{{ request.META.HTTP_REFERER }}">Yza</a>
+        </div>
+      </div>
+    {% endif %}
   </section>
 
   <!-- Scripts -->

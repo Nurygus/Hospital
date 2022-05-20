@@ -37,11 +37,17 @@
   <section class="row">
     <div class="col-2" id="sidebar">
       <h6>Ulanyjynyň paneli</h6>
-      <p>{{ request.user.username }}</p>
+      <p id="sidebar-username">{{ request.user.username }}</p>
 
-      <ul id="sidebar_menu">
-        <li><a href="{% url 'patientsApp:index' %}">Baş sahypa</a></li>
-        <li><a href="#">Ulanyjynyň profili</a></li>
+      <ul id="sidebar-menu">
+        <li>
+          <img src="{% static 'Hospital/bootstrap-icons/house.svg' %}" alt="">
+          <a href="{% url 'patientsApp:index' %}">Baş sahypa</a>
+        </li>
+        <li>
+          <img src="{% static 'Hospital/bootstrap-icons/info-circle.svg' %}" alt="">
+          <a href="#">Ulanyjynyň profili</a>
+        </li>
       </ul>
     </div>
     
