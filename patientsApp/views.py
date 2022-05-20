@@ -10,6 +10,8 @@ from django.utils import timezone
 from patientsApp.forms import Patient, ApplicationForm
 from patientsApp.models import PatientsApplications
 from doctorsApp.models import Survey, Diagnostic, Examination
+from doctorsApp.models import Diagnosis
+from doctorsApp.models import ProvisionalDiagnosis
 
 from itertools import chain
 
@@ -62,13 +64,25 @@ class CardView(TemplateView):
         surveys = Survey.objects.filter(patient_id = self.request.user.patient.id)
         diagnostics = Diagnostic.objects.filter(patient_id = self.request.user.patient.id)
         examinations = Examination.objects.filter(patient_id = self.request.user.patient.id)
+        provisionalDiagnosis = ProvisionalDiagnosis.objects.filter(patient_id = self.request.user.patient.id)
+        diagnosis = Diagnosis.objects.filter(patient_id = self.request.user.patient.id)
         
         patientCard = sorted(
-            chain(surveys, diagnostics, examinations),
+            chain(surveys, diagnostics, examinations, provisionalDiagnosis, diagnosis),
             key=lambda car: car.created_at, reverse=False)
+        patientCardCount = len(patientCard)
+    
+        TypesOfNotes = []
+        for note in patientCard:
+            noteParts = str(type(note)).split('.')
+            TypesOfNotes.append(noteParts[2][:-2].lower())
 
         context['patient'] = Patient.objects.get(id = self.request.user.patient.id)
         context['patientCard'] = patientCard
+        context['patientCardCount'] = patientCardCount
+        context['provisionalDiagnosis'] = provisionalDiagnosis
+        context['diagnosis'] = diagnosis
+        context['TypesOfNotes'] = TypesOfNotes
         
         return context
 
