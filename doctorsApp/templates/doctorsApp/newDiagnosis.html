@@ -11,7 +11,7 @@
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <title>Hassahana kartyny görmek</title>
+    <title>Mexant - Financial HTML5 Template</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{% static 'patientsApp/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
@@ -28,11 +28,13 @@
 
     <link rel="stylesheet" href="{% static 'Hospital/css/mainStyles.css' %}">
     <link rel="stylesheet" href="{% static 'doctorsApp/css/index.css' %}">
-    <link rel="stylesheet" href="{% static 'doctorsApp/css/patientCard.css' %}">
+    <link rel="stylesheet" href="{% static 'doctorsApp/css/ownPatientsList.css' %}">
+    <link rel="stylesheet" href="{% static 'doctorsApp/css/noteStyles.css' %}">
 
   </head>
 
 <body>
+
   <div class="container-fluid">
     <section class="row">
       <div class="col-2" id="sidebar">
@@ -52,76 +54,16 @@
       </div>
       
       <!-- Content -->
-      {% if patientCardCount >= 1 %}
-        <div class="col-8 services" id="services">
+      <div class="col-10 services" id="services">
           <div class="container">
-              <div class="col-12 block-group-header">
-                {{ patient.user.username }} näsagyň karty
-              </div>
-              {% for note in patientCard %}
-                  <div class="col-12 note-block">
-                      <a href="">{{ note.name }}</a>
-                      <p>{{ note.content }}</p>
-                      <p>{{ note.created_at }}</p>
-                      <p>Ýazgyny ýerine ýetiren {{ note.doctor.user.username }}</p>
-                  </div>
-              {% endfor %}
+            <form id="login_form" action="newSurveyPost" method="post">
+              {% csrf_token %}
+              <h6 class="primary-color">Diagnoz</h6>
+              <input class="form-input ps-4 mt-4" type="text" name="name" id="" placeholder="Ady">
+              <textarea class="form-input ps-4 pt-3 mt-4" type="text" name="content" id="" placeholder="Mazmun"></textarea>
+              <input class="form-input submit-input mt-4 mb-5" type="submit" name="submit" id="" value="Ýatda sakla">
+            </form>
           </div>
-        </div>
-      {% else %}
-        <div class="col-8 ps-0">
-          <div class="middled-message-block">
-            <div>
-              <p>Näsagyň kartynda entek ýazgy ýok!</p>
-              <p>Ýazgyny döretmek üçin ekranyň sag bölegindäki strukturalar bilen peýdalanyň!</p>
-              <a class="prev-page-button" href="{{ request.META.HTTP_REFERER }}">Yza</a>
-            </div>
-          </div>
-        </div>
-      {% endif %}
-
-      <div id="structures-sidebar" class="col-2 services text-center">
-        <h6 class="primary-color mt-4">Ýazgy goş</h6>
-        <a class="new-note-button row" href="newSurvey">
-          <div class="col-4 icon-container">
-            <img class="white-filter" src="{% static 'Hospital/bootstrap-icons/chat-right-text.svg' %}">
-          </div>
-          <div class="col-7">
-            <div>Soralyşyk</div>
-          </div>
-        </a>
-        <a class="new-note-button row" href="newExamination">
-          <div class="col-4 icon-container">
-            <img class="white-filter" src="{% static 'Hospital/bootstrap-icons/search.svg' %}">
-          </div>
-          <div class="col-7">
-            <div>Gözden geçirme</div>
-          </div>
-        </a>
-        <a class="new-note-button row" href="newDiagnostic">
-          <div class="col-4 icon-container">
-            <img class="white-filter" src="{% static 'Hospital/bootstrap-icons/file-text.svg' %}">
-          </div>
-          <div class="col-7">
-            <div>Barlag</div>
-          </div>
-        </a>
-        <a class="new-note-button row" href="newProvisionalDiagnosis">
-          <div class="col-4 icon-container">
-            <img class="white-filter" src="{% static 'Hospital/bootstrap-icons/clipboard.svg' %}">
-          </div>
-          <div class="col-7">
-            <div>Wagtlaýyn diagnoz</div>
-          </div>
-        </a>
-        <a class="new-note-button row" href="newDiagnosis">
-          <div class="col-4 icon-container">
-            <img class="white-filter" src="{% static 'Hospital/bootstrap-icons/clipboard-check.svg' %}">
-          </div>
-          <div class="col-7">
-            <div>Diagnoz</div>
-          </div>
-        </a>
       </div>
     </section>
   </div>

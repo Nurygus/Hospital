@@ -14,6 +14,8 @@ from doctorsApp.models import Diagnostic
 from doctorsApp.models import DiagnosticType
 from doctorsApp.models import Examination
 from doctorsApp.models import ExaminationType
+from doctorsApp.models import Diagnosis
+from doctorsApp.models import ProvisionalDiagnosis
 
 from patientsApp.models import Patient
 from patientsApp.models import PatientsApplications
@@ -117,16 +119,20 @@ def patientCard(request, patientId):
     surveys = Survey.objects.filter(patient_id = patientId)
     diagnostics = Diagnostic.objects.filter(patient_id = patientId)
     examinations = Examination.objects.filter(patient_id = patientId)
+    provisionalDiagnosis = ProvisionalDiagnosis.objects.filter(patient_id = patientId)
+    diagnosis = Diagnosis.objects.filter(patient_id = patientId)
 
     patientCard = sorted(
-        chain(surveys, diagnostics, examinations),
+        chain(surveys, diagnostics, examinations, provisionalDiagnosis, diagnosis),
         key=lambda car: car.created_at, reverse=False)
     patientCardCount = len(patientCard)
 
     context = {
         'patient': Patient.objects.get(id = patientId),
         'patientCard': patientCard,
-        'patientCardCount': patientCardCount
+        'patientCardCount': patientCardCount,
+        'provisionalDiagnosis': provisionalDiagnosis,
+        'diagnosis': diagnosis
     }
     return render(request, "doctorsApp/patientCard.html", context)
 
@@ -188,4 +194,32 @@ def newSurveyPost(request, patientId):
                     survey_type_id = request.POST.get('surveyType'),
                     created_at = timezone.now())
     survey.save()
+    return HttpResponseRedirect(reverse("doctorsApp:patientCard", args=[patientId]))
+
+@login_required
+def newProvisionalDiagnosis(request, patientId):
+    return render(request, "doctorsApp/newProvisionalDiagnosis.html")
+
+@login_required
+def newProvisionalDiagnosisPost(request, patientId):
+    provisionalDiagnosis = ProvisionalDiagnosis(name = request.POST.get('name'),
+                    content = request.POST.get('content'),
+                    doctor_id = request.user.doctor.id, 
+                    patient_id = patientId,
+                    created_at = timezone.now())
+    provisionalDiagnosis.save()
+    return HttpResponseRedirect(reverse("doctorsApp:patientCard", args=[patientId]))
+
+@login_required
+def newDiagnosis(request, patientId):
+    return render(request, "doctorsApp/newDiagnosis.html")
+
+@login_required
+def newDiagnosisPost(request, patientId):
+    diagnosis = Diagnosis(name = request.POST.get('name'),
+                    content = request.POST.get('content'),
+                    doctor_id = request.user.doctor.id, 
+                    patient_id = patientId,
+                    created_at = timezone.now())
+    Diagnosis.save()
     return HttpResponseRedirect(reverse("doctorsApp:patientCard", args=[patientId]))

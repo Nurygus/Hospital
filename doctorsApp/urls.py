@@ -19,4 +19,8 @@ urlpatterns = [
     path('ownPatientsList/<int:patientId>/newExaminationPost', views.newExaminationPost, name='newExaminationPost'),
     path('ownPatientsList/<int:patientId>/newSurvey', views.newSurvey, name='newSurvey'),
     path('ownPatientsList/<int:patientId>/newSurveyPost', views.newSurveyPost, name='newSurveyPost'),
+    path('ownPatientsList/<int:patientId>/newProvisionalDiagnosis', views.newProvisionalDiagnosis, name='newProvisionalDiagnosis'),
+    path('ownPatientsList/<int:patientId>/newProvisionalDiagnosisPost', views.newProvisionalDiagnosisPost, name='newProvisionalDiagnosisPost'),
+    path('ownPatientsList/<int:patientId>/newDiagnosis', views.newDiagnosis, name='newDiagnosis'),
+    path('ownPatientsList/<int:patientId>/newDiagnosisPost', views.newDiagnosisPost, name='newDiagnosisPost'),
 ]

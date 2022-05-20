@@ -62,3 +62,17 @@ class Diagnostic(models.Model):
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE)
     created_at = models.DateTimeField(blank=True, null=True)
+
+class Diagnosis(models.Model):
+    name = models.TextField()
+    content = models.TextField()
+    patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
+    doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(blank=True, null=True)
+    
+class ProvisionalDiagnosis(models.Model):
+    name = models.TextField()
+    content = models.TextField()
+    patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
+    doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(blank=True, null=True)
