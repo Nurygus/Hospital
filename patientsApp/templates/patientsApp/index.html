@@ -23,50 +23,52 @@
   </head>
 
 <body>
-  <section class="row">
-    <div class="col-2" id="sidebar">
-      <h6>Ulanyjynyň paneli</h6>
-      <p id="sidebar-username">{{ request.user.username }}</p>
+  <div class="container-fluid">
+    <section class="row">
+      <div class="col-2" id="sidebar">
+        <h6>Ulanyjynyň paneli</h6>
+        <p id="sidebar-username">{{ request.user.username }}</p>
 
-      <ul id="sidebar-menu">
-        <li>
-          <img src="{% static 'Hospital/bootstrap-icons/house.svg' %}" alt="">
-          <a href="{% url 'patientsApp:index' %}">Baş sahypa</a>
-        </li>
-        <li>
-          <img src="{% static 'Hospital/bootstrap-icons/info-circle.svg' %}" alt="">
-          <a href="#">Ulanyjynyň profili</a>
-        </li>
-      </ul>
-    </div>
-    <div class="col-10 services" id="services">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6">
-            <button type="button" id="buttonSendRequest1" class="service-item">
-              <img class="primary-filter" src="{% static 'Hospital/bootstrap-icons/envelope-plus.svg' %}">
-              <h4>Maşgala lukmanyna hat ugratmak</h4>
-              <p>Ähli lukmançylyk mesele barada hassahana hat iberiň.</p>
-            </button>
-          </div>
-          <div class="col-lg-6">
-            <button type="button" id="buttonSendRequest2" class="service-item">
-              <img class="primary-filter" src="{% static 'Hospital/bootstrap-icons/envelope-check.svg' %}">
-              <h4>Meniň ugradan hatlarym</h4>
-              <p>Hassahana ugradylan hatlarymy görmek.</p>
-            </button>
-          </div>
-          <div class="col-lg-6">
-            <button type="button" id="buttonSendRequest3" class="service-item">
-              <img class="primary-filter" src="{% static 'Hospital/bootstrap-icons/card-text.svg' %}">
-              <h4>Hassahana kartany görmek</h4>
-              <p>Meniň lukmançylyk kartamyň ýazgylaryny görmek.</p>
-            </button>
+        <ul id="sidebar-menu">
+          <li>
+            <img src="{% static 'Hospital/bootstrap-icons/house.svg' %}" alt="">
+            <a href="{% url 'patientsApp:index' %}">Baş sahypa</a>
+          </li>
+          <li>
+            <img src="{% static 'Hospital/bootstrap-icons/info-circle.svg' %}" alt="">
+            <a href="#">Ulanyjynyň profili</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-10 services" id="services">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6">
+              <button type="button" id="buttonSendRequest1" class="service-item">
+                <img class="primary-filter" src="{% static 'Hospital/bootstrap-icons/envelope-plus.svg' %}">
+                <h4>Maşgala lukmanyna hat ugratmak</h4>
+                <p>Ähli lukmançylyk mesele barada hassahana hat iberiň.</p>
+              </button>
+            </div>
+            <div class="col-lg-6">
+              <button type="button" id="buttonSendRequest2" class="service-item">
+                <img class="primary-filter" src="{% static 'Hospital/bootstrap-icons/envelope-check.svg' %}">
+                <h4>Meniň ugradan hatlarym</h4>
+                <p>Hassahana ugradylan hatlarymy görmek.</p>
+              </button>
+            </div>
+            <div class="col-lg-6">
+              <button type="button" id="buttonSendRequest3" class="service-item">
+                <img class="primary-filter" src="{% static 'Hospital/bootstrap-icons/card-text.svg' %}">
+                <h4>Hassahana kartany görmek</h4>
+                <p>Meniň lukmançylyk kartamyň ýazgylaryny görmek.</p>
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
 
   <!-- Scripts -->
   <!-- Bootstrap core JavaScript -->

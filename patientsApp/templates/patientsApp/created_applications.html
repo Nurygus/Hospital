@@ -27,84 +27,86 @@
   </head>
 
 <body>
-  <section class="row">
-    <div class="col-2" id="sidebar">
-      <h6>Ulanyjynyň paneli</h6>
-      <p id="sidebar-username">{{ request.user.username }}</p>
+  <div class="container-fluid">
+    <section class="row">
+      <div class="col-2" id="sidebar">
+        <h6>Ulanyjynyň paneli</h6>
+        <p id="sidebar-username">{{ request.user.username }}</p>
 
-      <ul id="sidebar-menu">
-        <li>
-          <img src="{% static 'Hospital/bootstrap-icons/house.svg' %}" alt="">
-          <a href="{% url 'patientsApp:index' %}">Baş sahypa</a>
-        </li>
-        <li>
-          <img src="{% static 'Hospital/bootstrap-icons/info-circle.svg' %}" alt="">
-          <a href="#">Ulanyjynyň profili</a>
-        </li>
-      </ul>
-    </div>
-  
+        <ul id="sidebar-menu">
+          <li>
+            <img src="{% static 'Hospital/bootstrap-icons/house.svg' %}" alt="">
+            <a href="{% url 'patientsApp:index' %}">Baş sahypa</a>
+          </li>
+          <li>
+            <img src="{% static 'Hospital/bootstrap-icons/info-circle.svg' %}" alt="">
+            <a href="#">Ulanyjynyň profili</a>
+          </li>
+        </ul>
+      </div>
+    
 
-    {% if messagesCount >= 1 %}
-      <div class="col-10 services" id="services"><!-- <section class="top-section"> -->
-        <div class="container">
-          <div class="row">
-            <div class="col-12 block-group-header">
-              Ugradan soraglarym
-            </div>
-            <div class="col-lg-10 offset-lg-1">
-              <div class="accordions is-first-expanded">
-                {% for application in latest_applications_list %}
-                  <article class="accordion">
-                    <div class="accordion-head">
-                        <div>{{ application.title }}</div>
-                        <div>
-                          <span>
-                            <span class="small-icon-span">
-                              <img class="small-icon-green" src="{% static 'Hospital/bootstrap-icons/calendar-event.svg' %}">
-                              <!-- <i class="bi bi-calendar-event"></i> -->
+      {% if messagesCount >= 1 %}
+        <div class="col-10 services" id="services"><!-- <section class="top-section"> -->
+          <div class="container">
+            <div class="row">
+              <div class="col-12 block-group-header">
+                Ugradan soraglarym
+              </div>
+              <div class="col-lg-10 offset-lg-1">
+                <div class="accordions is-first-expanded">
+                  {% for application in latest_applications_list %}
+                    <article class="accordion">
+                      <div class="accordion-head">
+                          <div>{{ application.title }}</div>
+                          <div>
+                            <span>
+                              <span class="small-icon-span">
+                                <img class="small-icon-green" src="{% static 'Hospital/bootstrap-icons/calendar-event.svg' %}">
+                                <!-- <i class="bi bi-calendar-event"></i> -->
+                              </span>
+                              {{ application.created_at|date:"s:i:H d.m.Y" }}
                             </span>
-                            {{ application.created_at|date:"s:i:H d.m.Y" }}
-                          </span>
-                          <span>
-                            <span class="small-icon-span">
-                              {% if application.is_opened == 1 %}
-                                <img class="small-icon-green" src="{% static 'Hospital/bootstrap-icons/check2-circle.svg' %}">
-                                <!-- <i class="bi bi-check2-circle"></i> -->
-                              {% elif application.is_opened == 0 %}
-                                <img class="small-icon-green" src="{% static 'Hospital/bootstrap-icons/x-circle.svg' %}">
-                                <!-- <i class="bi bi-x-circle"></i> -->
-                              {% endif %}
+                            <span>
+                              <span class="small-icon-span">
+                                {% if application.is_opened == 1 %}
+                                  <img class="small-icon-green" src="{% static 'Hospital/bootstrap-icons/check2-circle.svg' %}">
+                                  <!-- <i class="bi bi-check2-circle"></i> -->
+                                {% elif application.is_opened == 0 %}
+                                  <img class="small-icon-green" src="{% static 'Hospital/bootstrap-icons/x-circle.svg' %}">
+                                  <!-- <i class="bi bi-x-circle"></i> -->
+                                {% endif %}
+                              </span>
                             </span>
+                          </div>
+                          <span class="icon">
+                              <i class="icon fa fa-chevron-right"></i>
                           </span>
-                        </div>
-                        <span class="icon">
-                            <i class="icon fa fa-chevron-right"></i>
-                        </span>
-                    </div>
-                    <div class="accordion-body">
-                        <div class="content">
-                          <p>
-                            {{ application.message }}
-                          </p>
-                        </div>
-                    </div>
-                  </article>
-                {% endfor %}
+                      </div>
+                      <div class="accordion-body">
+                          <div class="content">
+                            <p>
+                              {{ application.message }}
+                            </p>
+                          </div>
+                      </div>
+                    </article>
+                  {% endfor %}
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    {% else %}
-      <div class="col-10 middled-message-block">
-        <div>
-          <p>Siz entek hat ugratmadyňyz!</p>
-          <a class="prev-page-button" href="{{ request.META.HTTP_REFERER }}">Yza</a>
+      {% else %}
+        <div class="col-10 middled-message-block">
+          <div>
+            <p>Siz entek hat ugratmadyňyz!</p>
+            <a class="prev-page-button" href="{{ request.META.HTTP_REFERER }}">Yza</a>
+          </div>
         </div>
-      </div>
-    {% endif %}
-  </section>  
+      {% endif %}
+    </section>
+  </div>
 
   <!-- Scripts -->
   <!-- Bootstrap core JavaScript -->

@@ -102,11 +102,13 @@ def ownPatientsList(request):
     patients = Patient.objects.raw('SELECT * FROM patientsapp_patient WHERE doctor_id = ' + str(request.user.doctor.id) )
     patientsCount = len(patients)
     messages = PatientsApplications.objects.raw('SELECT * FROM patientsapp_patientsapplications WHERE doctor_id = ' + str(request.user.doctor.id) )
+    messagesCount = len(messages)
 
     context = {
         'patients': patients,
         'patientsCount': patientsCount,
-        'messages': messages
+        'messages': messages,
+        'messagesCount': messagesCount
     }
     return render(request, "doctorsApp/ownPatientsList.html", context)
 
@@ -119,10 +121,12 @@ def patientCard(request, patientId):
     patientCard = sorted(
         chain(surveys, diagnostics, examinations),
         key=lambda car: car.created_at, reverse=False)
+    patientCardCount = len(patientCard)
 
     context = {
         'patient': Patient.objects.get(id = patientId),
-        'patientCard': patientCard
+        'patientCard': patientCard,
+        'patientCardCount': patientCardCount
     }
     return render(request, "doctorsApp/patientCard.html", context)
 

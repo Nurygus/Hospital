@@ -34,37 +34,39 @@
 
 <body>
 
-  <section class="row">
-    <div class="col-2" id="sidebar">
-      <h6>Ulanyjynyň paneli</h6>
-      <p id="sidebar-username">{{ request.user.username }}</p>
+  <div class="container-fluid">
+    <section class="row">
+      <div class="col-2" id="sidebar">
+        <h6>Ulanyjynyň paneli</h6>
+        <p id="sidebar-username">{{ request.user.username }}</p>
 
-      <ul id="sidebar-menu">
-        <li>
-          <img src="{% static 'Hospital/bootstrap-icons/house.svg' %}" alt="">
-          <a href="{% url 'patientsApp:index' %}">Baş sahypa</a>
-        </li>
-        <li>
-          <img src="{% static 'Hospital/bootstrap-icons/info-circle.svg' %}" alt="">
-          <a href="#">Ulanyjynyň profili</a>
-        </li>
-      </ul>
-    </div>
-    
-    <!-- Content -->
-    <div class="col-10 services" id="services">
-        <div class="container">
-            {% for note in patientCard %}
-                <div class="col-12 note-block">
-                    <a href="">{{ note.name }}</a>
-                    <p>{{ note.content }}</p>
-                    <p>{{ note.created_at }}</p>
-                    <p>Ýazgyny ýerine ýetiren {{ note.doctor.user.username }}</p>
-                </div>
-            {% endfor %}
-        </div>
-    </div>
-  </section>
+        <ul id="sidebar-menu">
+          <li>
+            <img src="{% static 'Hospital/bootstrap-icons/house.svg' %}" alt="">
+            <a href="{% url 'patientsApp:index' %}">Baş sahypa</a>
+          </li>
+          <li>
+            <img src="{% static 'Hospital/bootstrap-icons/info-circle.svg' %}" alt="">
+            <a href="#">Ulanyjynyň profili</a>
+          </li>
+        </ul>
+      </div>
+      
+      <!-- Content -->
+      <div class="col-10 services" id="services">
+          <div class="container">
+              {% for note in patientCard %}
+                  <div class="col-12 note-block">
+                      <a href="">{{ note.name }}</a>
+                      <p>{{ note.content }}</p>
+                      <p>{{ note.created_at }}</p>
+                      <p>Ýazgyny ýerine ýetiren {{ note.doctor.user.username }}</p>
+                  </div>
+              {% endfor %}
+          </div>
+      </div>
+    </section>
+  </div>
 
   <!-- Scripts -->
   <!-- Bootstrap core JavaScript -->

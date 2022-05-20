@@ -45,3 +45,8 @@
 .services h6{
     font-size: 23px;
 }
+
+.middled-message-block{
+    width: 97.5%;
+    height: 100%;
+}

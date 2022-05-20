@@ -48,64 +48,66 @@
         <a class="close-icon" href=""><img class="reply-icon primary-filter" src="{% static 'Hospital/bootstrap-icons/x.svg' %}" alt=""></a>
     </form>
 
-  <section class="row">
-    <div class="col-2" id="sidebar">
-      <h6>Ulanyjynyň paneli</h6>
-      <p id="sidebar-username">{{ request.user.username }}</p>
+  <div class="container-fluid">
+    <section class="row">
+      <div class="col-2" id="sidebar">
+        <h6>Ulanyjynyň paneli</h6>
+        <p id="sidebar-username">{{ request.user.username }}</p>
 
-      <ul id="sidebar-menu">
-        <li>
-          <img src="{% static 'Hospital/bootstrap-icons/house.svg' %}" alt="">
-          <a href="{% url 'doctorsApp:index' %}">Baş sahypa</a>
-        </li>
-        <li>
-          <img src="{% static 'Hospital/bootstrap-icons/info-circle.svg' %}" alt="">
-          <a href="#">Ulanyjynyň profili</a>
-        </li>
-      </ul>
-    </div>
-    
-    <!-- Content -->
-    {% if messagesCount >= 1 %}
-      <div class="col-10 services" id="services">
-          <div class="container">
-              <table class="table table-striped mt-3">
-                  <thead>
-                      <tr>
-                          <th>N</th>
-                          <th>Ady</th>
-                          <th>Hat</th>
-                          <th>Ugradylan senesi</th>
-                          <th>Ulanyjy</th>
-                          <th>Telefony</th>
-                          <th></th>
-                      </tr>
-                  </thead>
-                  <tbody>
-                      {% for message in messages %}
-                          <tr>
-                              <td>{{ forloop.counter }}</td>
-                              <td>{{ message.title }}</td>
-                              <td>{{ message.message }}</td>
-                              <td>{{ message.created_at }}</td>
-                              <td>{{ message.patient.user.username }}</td>
-                              <td>{{ message.patient.phone }}</td>
-                              <td class="reply-icon-container"><a id="{{ message.id }}" class="message-forward" href="#"><img class="reply-icon primary-filter" src="{% static 'Hospital/bootstrap-icons/reply-fill.svg' %}" alt=""></a></td>
-                          </tr>
-                      {% endfor %}
-                  </tbody>
-              </table>
-          </div>
+        <ul id="sidebar-menu">
+          <li>
+            <img src="{% static 'Hospital/bootstrap-icons/house.svg' %}" alt="">
+            <a href="{% url 'doctorsApp:index' %}">Baş sahypa</a>
+          </li>
+          <li>
+            <img src="{% static 'Hospital/bootstrap-icons/info-circle.svg' %}" alt="">
+            <a href="#">Ulanyjynyň profili</a>
+          </li>
+        </ul>
       </div>
-    {% else %}
-      <div class="col-10 middled-message-block">
-        <div>
-          <p>Size entek hat gelmedi!</p>
-          <a class="prev-page-button" href="{{ request.META.HTTP_REFERER }}">Yza</a>
+      
+      <!-- Content -->
+      {% if messagesCount >= 1 %}
+        <div class="col-10 services" id="services">
+            <div class="container">
+                <table class="table table-striped mt-3">
+                    <thead>
+                        <tr>
+                            <th>N</th>
+                            <th>Ady</th>
+                            <th>Hat</th>
+                            <th>Ugradylan senesi</th>
+                            <th>Ulanyjy</th>
+                            <th>Telefony</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for message in messages %}
+                            <tr>
+                                <td>{{ forloop.counter }}</td>
+                                <td>{{ message.title }}</td>
+                                <td>{{ message.message }}</td>
+                                <td>{{ message.created_at }}</td>
+                                <td>{{ message.patient.user.username }}</td>
+                                <td>{{ message.patient.phone }}</td>
+                                <td class="reply-icon-container"><a id="{{ message.id }}" class="message-forward" href="#"><img class="reply-icon primary-filter" src="{% static 'Hospital/bootstrap-icons/reply-fill.svg' %}" alt=""></a></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
         </div>
-      </div>
-    {% endif %}
-  </section>
+      {% else %}
+        <div class="col-10 middled-message-block">
+          <div>
+            <p>Size entek hat gelmedi!</p>
+            <a class="prev-page-button" href="{{ request.META.HTTP_REFERER }}">Yza</a>
+          </div>
+        </div>
+      {% endif %}
+    </section>
+  </div>
 
   <!-- Scripts -->
   <!-- Bootstrap core JavaScript -->
