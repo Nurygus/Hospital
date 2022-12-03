@@ -1,0 +1,70 @@
+#sidebar{
+    padding: 20px 0 0 0;
+    background-color: var(--bg-color);
+    height: 100vh;
+}
+#sidebar h6{
+    color: var(--white-color) !important;
+    margin-bottom: 10px;
+    text-align: center;
+}
+#sidebar p{
+    text-align: center;
+}
+#sidebar-username{
+    color: white;
+}
+#sidebar-menu{
+    margin-top: 100px;
+    padding-left: 25px;
+}
+#sidebar-menu li{
+    margin-bottom: 20px;
+}
+#sidebar-menu img{
+    width: 20px;
+    height: 20px;
+    margin-top: -5px;
+    margin-right: 9px;
+    filter: var(--white-filter);
+}
+#sidebar-menu a{
+    color: var(--white-color);
+    height: 40px;
+}
+#services{
+    padding-bottom: 30px;
+}
+.block-group-header:first-child{
+    margin-top: 20px;
+}
+.block-group-header{
+    margin-bottom: -10px;
+    margin-top: 50px;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    height: 35px;
+    line-height: 35px;
+    padding-left: 15px;
+    font-size: 20px;
+}
+.service-item{
+    width: 100%;
+    box-shadow: 2px 2px 5px rgb(190, 190, 190) !important;
+    text-align: center;
+    background-color: white;
+    border: 1px solid rgb(190, 190, 190);
+    transition: transform 0.4s;
+}
+.service-item:hover{
+    transform: translateY(10px);
+    transform-origin: 50% 0px;
+}
+.service-item img{
+    width: 60px;
+    height: 60px;
+    float: left;
+}
+.service-item h4{
+    color: var(--primary-color);
+}

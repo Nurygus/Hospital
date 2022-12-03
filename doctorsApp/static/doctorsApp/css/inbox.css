@@ -1,0 +1,60 @@
+.table th{
+    color: var(--primary-color);
+}
+.table td{
+    line-height: 30px;
+}
+.reply-icon{
+    height: 30px;
+    width: 30px;
+}
+.send-block{
+    width: 400px;
+    background-color: rgb(230, 230, 230);
+    position: absolute;
+    left:0;
+    right:0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 7px;
+    padding: 20px;
+    text-align: center;
+}
+.send-block h5{
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+.send-block label{
+    display: block;
+    color: var(--primary-color);
+    font-weight: bold;
+    text-align: left;
+    padding-left: 30px;
+}
+.form-input{
+    margin: auto;
+    width: 90%;
+    height: 50px;
+}
+.submit-input{
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    border: none;
+    transition: opacity 0.2s;
+}
+.submit-input:hover{
+    opacity: 0.9;
+}
+.send-block{
+    display: none;
+}
+#message-id{
+    display: none;
+}
+.close-icon{
+    display: block;
+    position: absolute;
+    right: 15px;
+    top: 10px;
+}

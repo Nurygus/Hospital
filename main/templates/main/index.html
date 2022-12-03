@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="en">
+    <head>
+
+        {% load static %}
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Sabrsky Hospital</title>
+
+        <!-- CSS FILES -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        
+        <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+                
+        <link href="{% static 'Hospital/css/bootstrap.min.css' %}" rel="stylesheet">
+
+        <link href="{% static 'main/css/bootstrap-icons.css' %}" rel="stylesheet">
+
+        <link href="{% static 'main/css/magnific-popup.css' %}" rel="stylesheet">
+
+        <link href="{% static 'Hospital/css/mainStyles.css' %}" rel="stylesheet">
+
+        <link href="{% static 'main/css/tooplate-tween-agency.css' %}" rel="stylesheet">
+
+    </head>
+    
+    <body>
+
+        <nav class="navbar fixed-top navbar-expand-lg">
+            <div class="container">
+
+                <a href="index.html" class="navbar-brand">
+                    <img class="img-icon menu-icon white-filter" src="{% static 'Hospital/src/bootstrap-icons-1.8.1/clipboard-heart.svg' %}" alt="">
+                    <!-- <i class="bi-heart"></i> -->
+                    <!-- <i class="bi bi-clipboard-heart"></i> -->
+                    <!-- <i class="bi bi-heart-pulse"></i> -->
+                    <!-- <i class="bi bi-postcard-heart"></i> -->
+                    Hospital
+                </a>
+
+                <a href="{% url 'login:index' %}" class="custom-btn btn btn-lg d-lg-none ms-auto me-4">
+                    Içeri gir
+                    <i class="bi-arrow-right ms-2"></i>
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-lg-5">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#section_1">Baş sahypa</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#section_2">Biz hakda</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#section_3">Hyzmatlar</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#section_4">Suratlar</a>
+                        </li>
+
+                    </ul>
+
+                    <div class="ms-auto d-none d-lg-block">
+                        <a href="{% url 'login:index' %}" class="custom-btn btn btn-lg">
+                            Içeri gir
+                            <i class="bi-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <main>
+
+            <section class="hero d-flex justify-content-center align-items-center" id="section_1">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-8 col-12">
+                            <div class="heroText">
+                                <h1 class="text-white mb-lg-5 mb-4">Sabrsky Hospital siziň hyzmatyňyzda</h1>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="overlay"></div>
+            </section>
+
+            <section class="about section-padding" id="section_2">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-6 col-12">
+                            <h2 class="mb-5">Sabrsky Hospital</h2>
+                        </div>
+
+                        <div class="col-lg-4 col-12 ms-lg-auto mb-5 mb-lg-0">
+                            <nav>
+                                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                    <button class="nav-link active" id="nav-intro-tab" data-bs-toggle="tab" data-bs-target="#nav-intro" type="button" role="tab" aria-controls="nav-intro" aria-selected="true">Hakda</button>
+
+                                    <button class="nav-link" id="nav-faq-tab" data-bs-toggle="tab" data-bs-target="#nav-faq" type="button" role="tab" aria-controls="nav-faq" aria-selected="false">FAQs</button>
+                                </div>
+                            </nav>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="tab-content" id="nav-tabContent">
+                                <div class="tab-pane fade show active" id="nav-intro" role="tabpanel" aria-labelledby="nav-intro-tab">
+                                    <div class="row">
+                                        <div class="col-lg-6 col-12 mb-lg-0 mb-4">
+                                            <img src="{% static 'main/images/hakda.jpg' %}" class="img-fluid" alt="">
+                                        </div>
+
+                                        <div class="col-lg-5 col-12 m-auto">
+                                            <h3 class="mb-3">Hassahana hakda</h3>
+
+                                            <p>Sabrsky Hospital hassahanalaryň işini has-da kämilleşdirmek üçin taýýarlandy.</p>
+
+                                            <p>Sanly hassahana lukmanlara näsaglara elektron görnüşinde hyzmat etmäge hem-de näsaglaryň kartalaryny sanly görnüşde saklamaga mümkinçilik berýär.</p>
+                                            
+                                            <p>Näsaglar elektron kartasyny we onuň mazmunyny awtomatiki görnüşde görmäge mümkinçilik alýarlar.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane fade" id="nav-faq" role="tabpanel" aria-labelledby="nav-faq-tab">
+                                    <div class="row">
+                                        <div class="col-lg-6 col-12 mb-lg-0 mb-4">
+                                            <img src="{% static 'main/images/healthcare-medical-concept-medicine-doctor-with-stethoscope-hand-patients-come_34200-313.jpg' %}" class="img-fluid" alt="">
+                                        </div>
+
+                                        <div class="col-lg-5 col-12 m-auto">
+                                            <h3 class="mb-3">Ýygy-ýygydan soralýan soraglar</h3>
+
+                                            <div class="accordion" id="accordionGeneral">
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header" id="headingOne">
+                                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordionGeneralOne" aria-expanded="true" aria-controls="accordionGeneralOne">
+                                                        Sabrsky Hospital näme?
+                                                        </button>
+                                                    </h2>
+
+                                                    <div id="accordionGeneralOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionGeneral">
+
+                                                        <div class="accordion-body">
+                                                            <p class="large-paragraph"><strong>Sabrsky Hospital</strong> bu elektron görnüşdäki hassahana. Sabrsky Hospital näsagyň kartasyny elekton görnüşde saklamaga mümkinçilik berýär.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header" id="headingTwo">
+                                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordionGeneralTwo" aria-expanded="false" aria-controls="accordionGeneralTwo">
+                                                        Sabrsky Hospital näme mümkinçilikler berýär?
+                                                        </button>
+                                                    </h2>
+
+                                                    <div id="accordionGeneralTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionGeneral">
+
+                                                        <div class="accordion-body">
+                                                            <p class="large-paragraph">Sabrsky Hospital sanly ulgam arkaly lukmanlara ýeňil görnüşde näsaglara hyzmat etmäge mümkiçilik berýär. Näsaglara bols öz näsag kartalaryny amatly görnüşde ulanmaga mümkinçilik berýär.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header" id="headingThree">
+                                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordionGeneralThree" aria-expanded="false" aria-controls="accordionGeneralThree">
+                                                        Sabrsky Hospital hyzmatlary bilen nädip peýadlanamaly?
+                                                        </button>
+                                                    </h2>
+
+                                                    <div id="accordionGeneralThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionGeneral">
+
+                                                        <div class="accordion-body">
+                                                            <p class="large-paragraph">Sabrsky Hospital hyzmatlary bilen peýdalanyp başlamak ýeňil! Sadaja <a href="">ulgama giriň</a></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <section class="services section-padding" id="section_3">
+                <div class="container">
+                    <div class="row">
+
+                        <h2 class="mb-5 text-center">Sabrsky Hospital hyzmatlary</h2>
+
+                            <div class="col-lg-4 col-12 d-flex bg-primary p-0">
+                                <img src="{% static 'main/images/services/undraw_Online_page_re_lhgx.svg' %}" class="img-fluid services-image" alt="">
+                            </div>
+
+                            <div class="col-lg-4 col-12 p-0">
+                                <div class="services-info custom-icon-left paddingText">
+                                
+                                    <h4 class="">Hassahana ulgamy</h4>
+
+                                    <p class="mb-4">Hassahanaň işlerini onlaýn görnüşinde alyp barmak<i></i></p>
+
+                                    <a class="custom-btn custom-bg-dark btn" href="#">Giňişleýin</a>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 col-12 d-flex bg-warning p-0">
+                                <img src="{% static 'main/images/services/undraw_online_transactions_02ka.svg' %}" class="img-fluid services-image" alt="">
+                            </div>
+
+                            <div class="col-lg-4 col-12 p-0 order-lg-0 order-sm-5">
+                          
+                                <div class="services-info custom-icon-right paddingText order-lg-0 order-sm-2">
+                                
+                                    <h4 class="">Elektron näsag karty</h4>
+
+                                    <p class="mb-4">Näsagyň bejergi alyş döwri hakda ähli maglumatlary saklaýar</p>
+
+                                    <a class="custom-btn custom-bg-dark btn" href="#">Giňişleýin</a>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 col-12 d-flex bg-success p-0 order-lg-0 order-sm-4">
+                                <img src="{% static 'main/images/services/undraw_content_team_3epn.svg' %}" class="img-fluid services-image" alt="">
+                            </div>
+
+                            <div class="col-lg-4 col-12 p-0">
+
+                                <div class="services-info custom-icon-top paddingText">
+                            
+                                    <h4 class="">Onlaýn kabulhana</h4>
+
+                                    <p class="mb-4">Sabrsky Hospital arkaly hassahana hat ugradyň</p>
+
+                                    <a class="custom-btn custom-bg-dark btn" href="#">Giňişleýin</a>
+                                </div>
+                            </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <section class="work section-padding" id="section_4">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <h2 class="mb-5 text-center">Saýlanan suratlar</h2>
+                        </div>
+
+                        <div class="col-lg-4 col-12">
+                            <div class="work-thumb mb-4">
+                                <div class="work-image-wrap">
+                                    <a href="{% static 'main/images/work/gettyimages-1049338924-612x612.jpg' %}" class="image-popup">
+                                        <img src="{% static 'main/images/work/gettyimages-1049338924-612x612.jpg' %}" class="img-fluid work-image" alt="">
+                                    </a>
+                                </div>
+                                
+                                <!-- <div class="work-text-info">
+                                    <small class="work-tag bg-white shadow-lg">Art Direction</small>
+
+                                    <h4 class="work-title">Simple Burger</h4>
+                                </div> -->
+                            </div> 
+                            <div class="work-thumb mb-4">
+                                <div class="work-image-wrap">
+                                    <a href="{% static 'main/images/gallery.jpg' %}" class="image-popup">
+                                        <img src="{% static 'main/images/gallery.jpg' %}" class="img-fluid work-image" alt="">
+                                    </a>
+                                </div>
+                                
+                                <!-- <div class="work-text-info">
+                                    <small class="work-tag bg-white shadow-lg">Web Development</small>
+
+                                    <h4 class="work-title">Data Science</h4>
+                                </div> -->
+                            </div> 
+                        </div>
+
+                        <div class="col-lg-4 col-12">
+                            <div class="work-thumb mb-4">
+                                <div class="work-image-wrap">
+                                    <a href="{% static 'main/images/work/gettyimages-1214357163-612x612.jpg' %}" class="image-popup">
+                                        <img src="{% static 'main/images/work/gettyimages-1214357163-612x612.jpg' %}" class="img-fluid work-image" alt="">
+                                    </a>
+                                </div>
+                                
+                                <!-- <div class="work-text-info">
+                                    <small class="work-tag bg-white shadow-lg">Web Development</small>
+
+                                    <h4 class="work-title">Data Science</h4>
+                                </div> -->
+                            </div> 
+
+                            <div class="work-thumb mb-4">
+                                <div class="work-image-wrap">
+                                    <a href="{% static 'main/images/work/gettyimages-1223142224-612x612.jpg' %}" class="image-popup">
+                                        <img src="{% static 'main/images/work/gettyimages-1223142224-612x612.jpg' %}" class="img-fluid work-image" alt="">
+                                    </a>
+                                </div>
+                                
+                                <!-- <div class="work-text-info">
+                                    <small class="work-tag bg-white shadow-lg">Branding</small>
+
+                                    <small class="work-tag bg-white shadow-lg">Graphic Design</small>
+
+                                    <h4 class="work-title">Health</h4>
+                                </div> -->
+                            </div> 
+                        </div>
+
+                        <div class="col-lg-4 col-12">
+                            <div class="work-thumb mb-4">
+                                <div class="work-image-wrap">
+                                    <a href="{% static 'main/images/work/gettyimages-1298883368-612x612.jpg' %}" class="image-popup">
+                                        <img src="{% static 'main/images/work/gettyimages-1298883368-612x612.jpg' %}" class="img-fluid work-image" alt="">
+                                    </a>
+                                </div>
+                                
+                                <!-- <div class="work-text-info">
+                                    <small class="work-tag bg-white shadow-lg">Photography</small>
+
+                                    <h4 class="work-title">Portraits</h4>
+                                </div> -->
+                            </div> 
+                            <div class="work-thumb mb-4">
+                                <div class="work-image-wrap">
+                                    <a href="{% static 'main/images/galleryy.jpg' %}" class="image-popup">
+                                        <img src="{% static 'main/images/galleryy.jpg' %}" class="img-fluid work-image" alt="">
+                                    </a>
+                                </div>
+                                
+                                <!-- <div class="work-text-info">
+                                    <small class="work-tag bg-white shadow-lg">Web Development</small>
+
+                                    <h4 class="work-title">Data Science</h4>
+                                </div> -->
+                            </div> 
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="site-footer">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-5 col-12 me-auto mb-4">
+                        <h3 class="text-white mb-3">Sabrsky Hospital</h3>
+                        <h5 class="text-white mb-3">Täzeliklere ýazylyň</h5>
+
+                        <form class="custom-form subscribe-form mt-4" role="form">
+                            <div class="row">
+                                <div class="col-lg-8 col-md-8 col-7">                                    
+                                    <input type="email" name="subscribe-email" id="subscribe-email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Emailyňyz" required="">
+                                </div>
+
+                                <div class="col-lg-4 col-md-4 col-5">                                  
+                                    <button type="submit" class="form-control" id="subscribe">Ýazylyň</button>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="col-lg-2 col-12">
+                        <h5 class="text-white mb-3">Habarlaşyň</h5>
+
+                        <p class="text-white mb-1">Aşgabat, Türkmenistan</p>
+
+                        <p><a href="mailto:email@company.com" class="footer-link">sabrskyhospital@gmail.com</a><p>
+                    </div>
+
+                    <div class="site-footer-bottom mt-5">
+                        <div class="row pt-4">
+                            <div class="col-lg-6 col-12">
+                                <p class="copyright-text tooplate-link">Copyright © 2022 Sabrsky Co., Ltd.</p>
+                            </div>
+
+                            <div class="col-lg-3 col-12 ms-auto">
+                                <ul class="social-icon">
+                                    <li><a href="#" class="social-icon-link bi-facebook"></a></li>
+
+                                    <li><a href="https://twitter.com/search?q=tooplate" class="social-icon-link bi-twitter"></a></li>
+
+                                    <li><a href="#" class="social-icon-link bi-instagram"></a></li>
+
+                                    <li><a href="#" class="social-icon-link bi-linkedin"></a></li>
+
+                                    <li><a href="#" class="social-icon-link bi-youtube"></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </footer>
+
+        <!-- JAVASCRIPT FILES -->
+        <script src="{% static 'Hospital/js/jquery.min.js' %}"></script>
+        <script src="{% static 'Hospital/js/popper.js' %}"></script>
+        <script src="{% static 'Hospital/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'main/js/jquery.backstretch.min.js' %}"></script>
+        <script src="{% static 'main/js/jquery.magnific-popup.min.js' %}"></script>
+        <script src="{% static 'main/js/magnific-popup-options.js' %}"></script>
+        <script src="{% static 'main/js/click-scroll.js' %}"></script>
+        <script src="{% static 'main/js/custom.js' %}"></script>
+    </body>
+</html>

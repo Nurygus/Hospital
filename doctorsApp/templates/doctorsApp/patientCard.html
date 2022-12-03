@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    {% load static %}
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <title>Hassahana kartyny görmek</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'patientsApp/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <link href="{% static 'main/css/bootstrap-icons.css' %}" rel="stylesheet">
+
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{% static 'patientsApp/assets/css/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'patientsApp/assets/css/templatemo-574-mexant.css' %}">
+    <link rel="stylesheet" href="{% static 'patientsApp/assets/css/owl.css' %}">
+    <link rel="stylesheet" href="{% static 'patientsApp/assets/css/animate.css' %}">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
+
+    <link rel="stylesheet" href="{% static 'Hospital/css/mainStyles.css' %}">
+    <link rel="stylesheet" href="{% static 'doctorsApp/css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'doctorsApp/css/patientCard.css' %}">
+
+  </head>
+
+<body>
+  <div class="container-fluid">
+    <section class="row">
+      <div class="col-2" id="sidebar">
+        <h6>Ulanyjynyň paneli</h6>
+        <p id="sidebar-username">{{ request.user.username }}</p>
+
+        <ul id="sidebar-menu">
+          <li>
+            <img src="{% static 'Hospital/bootstrap-icons/house.svg' %}" alt="">
+            <a href="{% url 'doctorsApp:index' %}">Baş sahypa</a>
+          </li>
+          <li>
+            <img src="{% static 'Hospital/bootstrap-icons/info-circle.svg' %}" alt="">
+            <a href="#">Ulanyjynyň profili</a>
+          </li>
+        </ul>
+      </div>
+      
+      <!-- Content -->
+      {% if patientCardCount >= 1 %}
+        <div class="col-8 services" id="services">
+          <div class="container">
+              <div class="col-12 block-group-header">
+                {{ patient.user.username }} näsagyň karty
+              </div>
+              {% load index %}
+              {% for note in patientCard %}
+                  <div class="col-12 note-block">
+                    <a class="block-preview">
+                        {% if TypesOfNotes|index:forloop.counter0 == "survey" %}
+                          <div class="block-img-container {{ TypesOfNotes|index:forloop.counter0 }}-icon">
+                            <img class="block-img white-filter" src="{% static 'Hospital/bootstrap-icons/chat-right-text.svg' %}">
+                          </div>
+                        {% elif TypesOfNotes|index:forloop.counter0 == "examination" %}
+                          <div class="block-img-container {{ TypesOfNotes|index:forloop.counter0 }}-icon">
+                            <img class="block-img white-filter" src="{% static 'Hospital/bootstrap-icons/search.svg' %}">
+                          </div>
+                        {% elif TypesOfNotes|index:forloop.counter0 == "diagnostic" %}
+                          <div class="block-img-container {{ TypesOfNotes|index:forloop.counter0 }}-icon">
+                            <img class="block-img white-filter" src="{% static 'Hospital/bootstrap-icons/file-text.svg' %}">
+                          </div>
+                        {% elif TypesOfNotes|index:forloop.counter0 == "provisionaldiagnosis" %}
+                          <div class="block-img-container {{ TypesOfNotes|index:forloop.counter0 }}-icon">
+                            <img class="block-img white-filter" src="{% static 'Hospital/bootstrap-icons/clipboard.svg' %}">
+                          </div>
+                        {% elif TypesOfNotes|index:forloop.counter0 == "diagnosis" %}
+                          <div class="block-img-container {{ TypesOfNotes|index:forloop.counter0 }}-icon">
+                            <img class="block-img white-filter" src="{% static 'Hospital/bootstrap-icons/clipboard-check.svg' %}">
+                          </div>
+                        {% endif %}
+                      <div>{{ note.name }}</div>
+                    </a>
+                    <div class="block-data">
+                      <p class="block-content">{{ note.content }}</p>
+                      <p class="block-created-at">{{ note.created_at }}</p>
+                      <p class="block-made-by">Ýazgyny ýerine ýetiren {{ note.doctor.user.username }}</p>
+                    </div>
+                  </div>
+              {% endfor %}
+          </div>
+        </div>
+      {% else %}
+        <div class="col-8 ps-0">
+          <div class="middled-message-block middled-message-block-sized">
+            <div>
+              <p>Näsagyň kartynda entek ýazgy ýok!</p>
+              <p>Ýazgyny döretmek üçin ekranyň sag bölegindäki strukturalar bilen peýdalanyň!</p>
+              <a class="prev-page-button" href="{{ request.META.HTTP_REFERER }}">Yza</a>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+
+      <div id="structures-sidebar" class="col-2 services text-center">
+        <h6 class="primary-color mt-4 mb-4">Ýazgy goş</h6>
+        <a class="new-note-button row" href="newSurvey">
+          <div class="col-4 icon-container survey-icon">
+            <img class="white-filter" src="{% static 'Hospital/bootstrap-icons/chat-right-text.svg' %}">
+          </div>
+          <div class="col-7">
+            <div>Soralyşyk</div>
+          </div>
+        </a>
+        <a class="new-note-button row" href="newExamination">
+          <div class="col-4 icon-container examination-icon">
+            <img class="white-filter" src="{% static 'Hospital/bootstrap-icons/search.svg' %}">
+          </div>
+          <div class="col-7">
+            <div>Gözden geçirme</div>
+          </div>
+        </a>
+        <a class="new-note-button row" href="newDiagnostic">
+          <div class="col-4 icon-container diagnostic-icon">
+            <img class="white-filter" src="{% static 'Hospital/bootstrap-icons/file-text.svg' %}">
+          </div>
+          <div class="col-7">
+            <div>Barlag</div>
+          </div>
+        </a>
+        <a class="new-note-button row" href="newProvisionalDiagnosis">
+          <div class="col-4 icon-container provisionaldiagnosis-icon">
+            <img class="white-filter" src="{% static 'Hospital/bootstrap-icons/clipboard.svg' %}">
+          </div>
+          <div class="col-7">
+            <div>Wagtlaýyn diagnoz</div>
+          </div>
+        </a>
+        <a class="new-note-button row" href="newDiagnosis">
+          <div class="col-4 icon-container diagnosis-icon">
+            <img class="white-filter" src="{% static 'Hospital/bootstrap-icons/clipboard-check.svg' %}">
+          </div>
+          <div class="col-7">
+            <div>Diagnoz</div>
+          </div>
+        </a>
+      </div>
+    </section>
+  </div>
+
+  <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'patientsApp/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'patientsApp/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+    <script src="{% static 'patientsApp/assets/js/isotope.min.js' %}"></script>
+    <script src="{% static 'patientsApp/assets/js/owl-carousel.js' %}"></script>
+    <script src="{% static 'patientsApp/assets/js/wow.js' %}"></script>
+    <script src="{% static 'patientsApp/assets/js/tabs.js' %}"></script>
+    <script src="{% static 'patientsApp/assets/js/swiper.js' %}"></script>
+    <script src="{% static 'patientsApp/assets/js/custom.js' %}"></script>
+    <script>
+      var interleaveOffset = 0.5;
+
+      var swiperOptions = {
+        loop: true,
+        speed: 1000,
+        grabCursor: true,
+        watchSlidesProgress: true,
+        mousewheelControl: true,
+        keyboardControl: true,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev"
+        },
+        on: {
+          progress: function() {
+            var swiper = this;
+            for (var i = 0; i < swiper.slides.length; i++) {
+              var slideProgress = swiper.slides[i].progress;
+              var innerOffset = swiper.width * interleaveOffset;
+              var innerTranslate = slideProgress * innerOffset;
+              swiper.slides[i].querySelector(".slide-inner").style.transform =
+                "translate3d(" + innerTranslate + "px, 0, 0)";
+            }      
+          },
+          touchStart: function() {
+            var swiper = this;
+            for (var i = 0; i < swiper.slides.length; i++) {
+              swiper.slides[i].style.transition = "";
+            }
+          },
+          setTransition: function(speed) {
+            var swiper = this;
+            for (var i = 0; i < swiper.slides.length; i++) {
+              swiper.slides[i].style.transition = speed + "ms";
+              swiper.slides[i].querySelector(".slide-inner").style.transition =
+                speed + "ms";
+            }
+          }
+        }
+      };
+
+      var swiper = new Swiper(".swiper-container", swiperOptions);
+    </script>
+    <script>
+      document.getElementById("buttonSendRequest1").onclick = function () {
+        location.href = "{% url 'patientsApp:create_request' %}";
+      };
+    </script>
+    <script src="{% static 'doctorsApp/js/inbox.js' %}"></script>
+    <script src="{% static 'doctorsApp/js/patientCard.js' %}"></script>
+  </body>
+</html>
