@@ -13,6 +13,7 @@ from doctorsApp.models import Survey, Diagnostic, Examination
 from doctorsApp.models import Diagnosis
 from doctorsApp.models import ProvisionalDiagnosis
 from patientsApp.lib.views.ProfileView import ProfileView
+
 from itertools import chain
 
 # Create your views here.
