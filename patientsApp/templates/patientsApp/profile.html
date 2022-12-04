@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    {% load static %}
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <title>Ulanyjy</title>
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{% static 'patientsApp/assets/css/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'patientsApp/assets/css/templatemo-574-mexant.css' %}">
+
+    <link rel="stylesheet" href="{% static 'Hospital/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'Hospital/css/mainStyles.css' %}">
+    <link rel="stylesheet" href="{% static 'doctorsApp/css/index.css' %}">
+  </head>
+
+<body>
+  <div class="container-fluid">
+    <section class="row">
+      <div class="col-2" id="sidebar">
+        <h6>Ulanyjynyň paneli</h6>
+        <p id="sidebar-username">{{ request.user.username }}</p>
+
+        <ul id="sidebar-menu">
+          <li>
+            <img src="{% static 'Hospital/bootstrap-icons/house.svg' %}" alt="">
+            <a href="{% url 'patientsApp:index' %}">Baş sahypa</a>
+          </li>
+          <li>
+            <img src="{% static 'Hospital/bootstrap-icons/info-circle.svg' %}" alt="">
+            <a href="{% url 'patientsApp:profile' %}">Ulanyjynyň profili</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-10 services" id="services">
+        <div class="container">
+          <h2 style="color: #38b083;" class="mt-4 offset-lg-3">Profil</h2>
+          <div class="row">    
+            <p>Dünýä indi: {{ patient.date_of_birth }}</p> <hr>
+            <p>Ýaşaýan ýurdy: {{ patient.country }}</p>
+            <p>Ýaşaýan şäheri: {{ patient.city }}</p>
+            <p>Ýaşaýan etraby: {{ patient.etrap }}</p> <hr>
+            <!-- <p>Hassahana: {{ patient.hospital }}</p> -->
+            <!-- <p>Lukmany: {{ patient.doctor }}</p> -->
+            <p>Işleýän ýeri: {{ patient.work_address }}</p>
+            <p>Wezipesi: {{ patient.work }}</p> <hr>
+            <p>Telefon nomeri: {{ patient.phone }}</p><hr>
+            <p>Soraglaryň jemi: {{ applicationsCount }}</p>
+            <p>Iň soňky soragy: {{ latestApplication.title }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'patientsApp/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'patientsApp/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+    <script src="{% static 'patientsApp/assets/js/isotope.min.js' %}"></script>
+    <script src="{% static 'patientsApp/assets/js/wow.js' %}"></script>
+    <script src="{% static 'patientsApp/assets/js/tabs.js' %}"></script>
+    <script src="{% static 'patientsApp/assets/js/index.js' %}"></script>
+
+    <!-- <script>
+      document.getElementById("buttonSendRequest1").onclick = function () {
+        location.href = "{% url 'patientsApp:create_request' %}";
+      };
+      document.getElementById("buttonSendRequest2").onclick = function () {
+        location.href = "{% url 'patientsApp:created_applications' %}";
+      };
+      document.getElementById("buttonSendRequest3").onclick = function () {
+        location.href = "{% url 'patientsApp:card' %}";
+      };
+    </script> -->
+  </body>
+</html>

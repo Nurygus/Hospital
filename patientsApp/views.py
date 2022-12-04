@@ -7,12 +7,12 @@ from django.views.generic.edit import FormView
 from django.urls import reverse, reverse_lazy
 from django.utils import timezone
 
-from patientsApp.forms import Patient, ApplicationForm
-from patientsApp.models import PatientsApplications
+from patientsApp.forms import ApplicationForm
+from patientsApp.models import Patient, PatientsApplications
 from doctorsApp.models import Survey, Diagnostic, Examination
 from doctorsApp.models import Diagnosis
 from doctorsApp.models import ProvisionalDiagnosis
-
+from patientsApp.lib.views.ProfileView import ProfileView
 from itertools import chain
 
 # Create your views here.
